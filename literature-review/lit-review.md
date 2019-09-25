@@ -22,7 +22,6 @@
 
 ## Method Related
 
-* * *
 
 - **Author:** Julia M. Rohrer, Boris Egloff, Stefan C. Schmukle
 - **Year:** 2017
