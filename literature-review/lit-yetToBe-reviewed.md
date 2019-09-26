@@ -42,7 +42,16 @@
 - **Author:** Xavier X. Sala-i-Martin
 - **Abstract:** In this paper I try to move away from the Extreme Bounds method of identifying" Instead of analyzing the" extreme bounds of the estimates of the coefficient of a particular variable distribution. My claim in this paper is that, if we do this, the picture emerging from the" empirical growth literature is not the pessimistic Robust" that we get with the" extreme bound analysis. Instead, we find that a substantial number of variables can be found" to be strongly related to growth.
 - **Link:** https://www.nber.org/papers/w6252.pdf
-- **Why care:** The title looks appealing. Also seems to be relevant to the idea of fitting lots of models on one question
+- **Why care:** Cited by the SCA paper, mentioned in the paper as one of the models that's most similar to the idea proposed in the SCA. 
+- **Year:** 1997
+
+* * *
+
+- **Title:** Let's Take the Con out of Econometrics
+- **Author:** Edward E. Leamer
+- **Abstract:**
+- **Link:** https://pdfs.semanticscholar.org/97a0/c0228e6bfa70703b3c1507a550cfe273bec7.pdf
+- **Why case:** Also cited by the SCA paper and mentioned in the text that it's one of the models that's most similar to the idea proposed in the SCA
 - **Year:** 1997
 
 * * *
