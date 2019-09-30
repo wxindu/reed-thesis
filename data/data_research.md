@@ -1,7 +1,5 @@
 # Data Research
 
-* * *
-
 ## Orben's
 
 ### MCS (Millennium Cohort Study)
