@@ -1,0 +1,11 @@
+# Data Research Findings
+
+## MCS (Millennium Cohort Study)
+
+- The data used by Orben is *Millennium Cohort Study: Sixth Survey* [SN8156], can be found here: https://cls.ucl.ac.uk/cls-studies/millennium-cohort-study/mcs-age-14-sweep/ or http://doi.org/10.5255/UKDA-SN-8156-4 
+- The data are safeguarded, 
+> "'Safeguarded' is currently the Office for National Statistics’s preferred term for data which we provide under the UK Data Service’s End User Licence (EUL)."
+
+- Seems like data are accessible for registered users. If not in UK and/or not part of an organization on the list of federation members for UK Access Management Federation, we must request username to register. I've sent out a request (12:40pm 9/30/2019) and it's said that they need about three working days to process the request. 
+
+
