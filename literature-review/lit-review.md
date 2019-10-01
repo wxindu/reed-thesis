@@ -32,6 +32,15 @@
 
 * * *
 
+- **Author:** Wolfgang Forstmeier, Eric-Jan Wagenmakers and Timothy H. Parker
+- **Year:** 2017
+- **Title:** Detecting and avoiding likely false-positive findings – a practical guide
+- **Summary:** Discusses about the replication crisis, the sources of errors and possible solutions
+- **Hoe does this relate?** In the paper the SCA was briefly mentioned and discussed. In this paper, the SCA was described as "try all versions to examine robustness of findings". One other paper (Steegen *et al.*, 2016 was mentioned and seems to perform similar method (or method for similar purpose) as SCA
+- **Link:** https://doi.org/10.1111/brv.12315
+
+* * *
+
 
 ## Scientific Question Related
 
