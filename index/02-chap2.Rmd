@@ -2,11 +2,54 @@
 
 ## Data
 
-    Three datasets were used in Orben's study. 
+\par Three large-scale social datasets were used in Orben's study--Monitoring the Future (MTF) and Youth Risk and Behavior Survey (YRBS) from the United States of America, and Millennium Cohort Study (MCS) from the United Kingdom. The three datasets encompass survey answers from adolescents aged predominately 12-18 in the time period of 2007 to 2016. The surveys provided measures of adolescents' psychological well-being and digital technology use and have been used in multiple existing psychology studies. 
+    
+### YRBS
+
+- launched in 1990, a biennial survey of adolescents that reflects a nationally representative sample of students attending secondary schools. 
+- Used sample from 2007 to 2015, 37402 girls and 37412 boys were included in the study, age range from "12 or younger" to "18 or older"
+- Data were successfully found. While Orben used data in `.sav` file, was only able to obtain data in Microsoft Access format. Include same observations. 
+- Can be accessed publicly
+
+### MTF
+
+- launched in 1975, an annual nationally representative survey of approximately 50,000 US adolescents in grades 8, 10 and 12. Surveys on adolescents in grade 12 were not used in the analysis since "many of the key items of interest cannot be correlated in their survey". 
+- The sample used were collected from 2008 to 2016, included 136,190 girls and 132,482 boys. Exact ages of the participants were removed for anonymization in the dataset. 
+- Data were successfully found. While Orben used data in `.sav` file, was only able to obtain data in `.rda` format. 
+- Can be accessed publicly
+
+### MCS
+
+- Follows a specific cohort of children born between September 2000 and January 2001. Data were provided by both caregivers (parents) and adolescent participants. 
+- The sample used included 5926 girls and 5946 boys with age ranged from 13 to 15. 10605 caregivers were also included. 
+- Data were successfully found. While Orben used data in `.csv` file, was only able to obtain data in `.sav` format. 
+- Needed to submit request for access of data
 
 ## Processing
 
+- With a close look into Orben's code, https://github.com/OrbenAmy/NHB_2019, the values included in the datasets obtained were in different form than the values included in the datasets used by Orben. While Orben had all numerical values, with numbers being the index of survey answers, the datasets obtained had characteristic values, as a combination of numerical index and actual survey answer in characters. Data processing is thus needed to replicate Orben's code. 
+
+### YRBS
+
+### MTF
+
+### MCS
+
+- All variables used in Orben's study were reprocessed. Refered back to the survey questionnaire for the correct numerical index of survey answers. Most variables were successfully reprocessed and reruning Orben's code on the processed variables was successful
+- Failed to obtain two variables. The variables had all NA values in the dataset. One related to family income and the other related to siblings at home. The two variables served as control variables in the SCA analysis. Thus both were removed to continue replication. 
+- All other code were ran successfully without significant changes. (only changed file directories)
+
 ## SCA Results
+
+### YRBS
+
+### MTF
+
+### MCS
+
+- The replicated SCA result had $\beta = -0.0328$, while in Orben's study $\beta = -0.032$. The result obtained in the replication study is very close to the original result. Consider two variables were removed from the control group, the result seems reasonable. 
 
 ## Replication Obstacles
 
+- Had to do lots of data processing to be able to run the code and replicate results. 
+- Permutation tests take long to be conducted. Orben used Oxford's server for those simulations. Need to (possibly) subset datasets to run the permutation tests in a reasonable amount of time. 
