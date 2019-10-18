@@ -10,6 +10,8 @@
 
 - Seems like data are accessible for registered users. If not in UK and/or not part of an organization on the list of federation members for UK Access Management Federation, we must request username to register. I've sent out a request (12:40pm 9/30/2019) and it's said that they need about three working days to process the request. 
 
+- [UPDATE] Request has been processed and successfully accessed to data.
+
 ### MTF (Monitoring the Future)
 
 - The data are publicly available at https://www.icpsr.umich.edu/icpsrweb/NAHDAP/studies/36799/version/1
