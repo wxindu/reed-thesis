@@ -168,95 +168,279 @@ starts here.
   \mainmatter % here the regular arabic numbering starts
   \pagestyle{fancyplain} % turns page numbering back on
 
-  \chapter{Delete line 6 if you only have one
-  advisor}\label{delete-line-6-if-you-only-have-one-advisor}
+  \chapter*{Introduction}\label{introduction}
+  \addcontentsline{toc}{chapter}{Introduction}
   
-  Placeholder
+  \chapter{Background}\label{background}
   
-  \chapter{Replication}\label{replications}
+  \section{Specification Curve Analysis
+  (SCA)}\label{specification-curve-analysis-sca}
+  
+  \section{Orben's Study}\label{orbens-study}
+  
+  \chapter{Replication}\label{replication}
   
   \section{Data}\label{data}
-  
+  \begin{verbatim}
+  Three datasets were used in Orben's study. 
+  \end{verbatim}
   \section{Processing}\label{processing}
   
   \section{SCA Results}\label{sca-results}
   
-  \chapter{Mathematics and Science}\label{math-sci}
-  
-  \section{Math}\label{math}
-  
-  \TeX~is the best way to typeset mathematics. Donald Knuth designed
-  \TeX~when he got frustrated at how long it was taking the typesetters to
-  finish his book, which contained a lot of mathematics. One nice feature
-  of \emph{R Markdown} is its ability to read LaTeX code directly.
-  
-  If you are doing a thesis that will involve lots of math, you will want
-  to read the following section which has been commented out. If you're
-  not going to use math, skip over or delete this next commented section.
-  
-  \[\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-  \left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-  \]
-  
-  From Informational Dynamics, we have the following (Dave Braden):
-  
-  After \emph{n} such encounters the posterior density for \(\theta\) is
-  
-  \[
-  \pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-     \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-  \]
-  
-  Another equation:
-  
-  \[\det\left|\,\begin{matrix}%
-  c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-  c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-  c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-  \,\vdots\hfill&\,\vdots\hfill&
-    \,\vdots\hfill&&\,\vdots\hfill\cr
-  c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-  \end{matrix}\right|>0\]
-  Lapidus and Pindar, Numerical Solution of Partial Differential Equations
-  in Science and Engineering. Page 54
-  
-  \[
-  \int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-     \qquad\quad i=1,2,3.
-  \]
-  
-  L\&P Galerkin method weighting functions. Page 55
-  
-  \[
-  \sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-     = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]
-  
-  Another L\&P (p145)
-  
-  \[
-  \int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-     = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-  \]
-  
-  Another L\&P (p126)
-  
-  \[
-  \int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-  \]
-  
   \chapter{Tables, Graphics, References, and Labels}\label{ref-labels}
-  
-  Placeholder
   
   \section{Tables}\label{tables}
   
+  In addition to the tables that can be automatically generated from a
+  data frame in \textbf{R} that you saw in {[}R Markdown Basics{]} using
+  the \texttt{kable} function, you can also create tables using
+  \emph{pandoc}. (More information is available at
+  \url{http://pandoc.org/README.html\#tables}.) This might be useful if
+  you don't have values specifically stored in \textbf{R}, but you'd like
+  to display them in table form. Below is an example. Pay careful
+  attention to the alignment in the table and hyphens to create the rows
+  and columns.
+  \begin{longtable}[]{@{}ccc@{}}
+  \caption{\label{tab:inher} Correlation of Inheritance Factors for Parents
+  and Child}\tabularnewline
+  \toprule
+  \begin{minipage}[b]{0.29\columnwidth}\centering\strut
+  Factors\strut
+  \end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering\strut
+  Correlation between Parents \& Child\strut
+  \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+  Inherited\strut
+  \end{minipage}\tabularnewline
+  \midrule
+  \endfirsthead
+  \toprule
+  \begin{minipage}[b]{0.29\columnwidth}\centering\strut
+  Factors\strut
+  \end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering\strut
+  Correlation between Parents \& Child\strut
+  \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+  Inherited\strut
+  \end{minipage}\tabularnewline
+  \midrule
+  \endhead
+  \begin{minipage}[t]{0.29\columnwidth}\centering\strut
+  Education\strut
+  \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+  -0.49\strut
+  \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+  Yes\strut
+  \end{minipage}\tabularnewline
+  \begin{minipage}[t]{0.29\columnwidth}\centering\strut
+  Socio-Economic Status\strut
+  \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+  0.28\strut
+  \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+  Slight\strut
+  \end{minipage}\tabularnewline
+  \begin{minipage}[t]{0.29\columnwidth}\centering\strut
+  Income\strut
+  \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+  0.08\strut
+  \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+  No\strut
+  \end{minipage}\tabularnewline
+  \begin{minipage}[t]{0.29\columnwidth}\centering\strut
+  Family Size\strut
+  \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+  0.18\strut
+  \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+  Slight\strut
+  \end{minipage}\tabularnewline
+  \begin{minipage}[t]{0.29\columnwidth}\centering\strut
+  Occupational Prestige\strut
+  \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+  0.21\strut
+  \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+  Slight\strut
+  \end{minipage}\tabularnewline
+  \bottomrule
+  \end{longtable}
+  We can also create a link to the table by doing the following: Table
+  \ref{tab:inher}. If you go back to {[}Loading and exploring data{]} and
+  look at the \texttt{kable} table, we can create a reference to this max
+  delays table too: Table \ref{tab:maxdelays}. The addition of the
+  \texttt{(\textbackslash{}\#tab:inher)} option to the end of the table
+  caption allows us to then make a reference to Table
+  \texttt{\textbackslash{}@ref(tab:label)}. Note that this reference could
+  appear anywhere throughout the document after the table has appeared.
+  
+  \clearpage
+  
   \section{Figures}\label{figures}
+  
+  If your thesis has a lot of figures, \emph{R Markdown} might behave
+  better for you than that other word processor. One perk is that it will
+  automatically number the figures accordingly in each chapter. You'll
+  also be able to create a label for each figure, add a caption, and then
+  reference the figure in a way similar to what we saw with tables
+  earlier. If you label your figures, you can move the figures around and
+  \emph{R Markdown} will automatically adjust the numbering for you. No
+  need for you to remember! So that you don't have to get too far into
+  LaTeX to do this, a couple \textbf{R} functions have been created for
+  you to assist. You'll see their use below.
+  
+  In the \textbf{R} chunk below, we will load in a picture stored as
+  \texttt{reed.jpg} in our main directory. We then give it the caption of
+  ``Reed logo'', the label of ``reedlogo'', and specify that this is a
+  figure. Make note of the different \textbf{R} chunk options that are
+  given in the R Markdown file (not shown in the knitted document).
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \KeywordTok{include_graphics}\NormalTok{(}\DataTypeTok{path =} \StringTok{"figure/reed.jpg"}\NormalTok{)}
+  \end{Highlighting}
+  \end{Shaded}
+  \begin{figure}
+  \includegraphics[width=3.47in]{figure/reed} \caption{Reed logo}\label{fig:reedlogo}
+  \end{figure}
+  Here is a reference to the Reed logo: Figure \ref{fig:reedlogo}. Note
+  the use of the \texttt{fig:} code here. By naming the \textbf{R} chunk
+  that contains the figure, we can then reference that figure later as
+  done in the first sentence here. We can also specify the caption for the
+  figure via the R chunk option \texttt{fig.cap}.
+  
+  \clearpage 
+  
+  Below we will investigate how to save the output of an \textbf{R} plot
+  and label it in a way similar to that done above. Recall the
+  \texttt{flights} dataset from Chapter \ref{rmd-basics}. (Note that we've
+  shown a different way to reference a section or chapter here.) We will
+  next explore a bar graph with the mean flight departure delays by
+  airline from Portland for 2014. Note also the use of the \texttt{scale}
+  parameter which is discussed on the next page.
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}
+  \StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_dep_delay =} \KeywordTok{mean}\NormalTok{(dep_delay)) }\OperatorTok{%>%}
+  \StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ carrier, }\DataTypeTok{y =}\NormalTok{ mean_dep_delay)) }\OperatorTok{+}
+  \StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"red"}\NormalTok{)}
+  \end{Highlighting}
+  \end{Shaded}
+  \begin{figure}
+  \centering
+  \includegraphics{thesis_files/figure-latex/delaysboxplot-1.pdf}
+  \caption{\label{fig:delaysboxplot}Mean Delays by Airline}
+  \end{figure}
+  Here is a reference to this image: Figure \ref{fig:delaysboxplot}.
+  
+  A table linking these carrier codes to airline names is available at
+  \url{https://github.com/ismayc/pnwflights14/blob/master/data/airlines.csv}.
+  
+  \clearpage
+  
+  Next, we will explore the use of the \texttt{out.extra} chunk option,
+  which can be used to shrink or expand an image loaded from a file by
+  specifying \texttt{"scale=\ "}. Here we use the mathematical graph
+  stored in the ``subdivision.pdf'' file.
+  \begin{figure}
+  \includegraphics[scale=0.75]{figure/subdivision} \caption{Subdiv. graph}\label{fig:subd}
+  \end{figure}
+  Here is a reference to this image: Figure \ref{fig:subd}. Note that
+  \texttt{echo=FALSE} is specified so that the \textbf{R} code is hidden
+  in the document.
+  
+  \textbf{More Figure Stuff}
+  
+  Lastly, we will explore how to rotate and enlarge figures using the
+  \texttt{out.extra} chunk option. (Currently this only works in the PDF
+  version of the book.)
+  \begin{figure}
+  \includegraphics[angle=180, scale=1.1]{figure/subdivision} \caption{A Larger Figure, Flipped Upside Down}\label{fig:subd2}
+  \end{figure}
+  As another example, here is a reference: Figure \ref{fig:subd2}.
   
   \section{Footnotes and Endnotes}\label{footnotes-and-endnotes}
   
+  You might want to footnote something.\footnote{footnote text} The
+  footnote will be in a smaller font and placed appropriately. Endnotes
+  work in much the same way. More information can be found about both on
+  the CUS site or feel free to reach out to
+  \href{mailto:data@reed.edu}{\nolinkurl{data@reed.edu}}.
+  
   \section{Bibliographies}\label{bibliographies}
   
+  Of course you will need to cite things, and you will probably accumulate
+  an armful of sources. There are a variety of tools available for
+  creating a bibliography database (stored with the .bib extension). In
+  addition to BibTeX suggested below, you may want to consider using the
+  free and easy-to-use tool called Zotero. The Reed librarians have
+  created Zotero documentation at
+  \url{http://libguides.reed.edu/citation/zotero}. In addition, a tutorial
+  is available from Middlebury College at
+  \url{http://sites.middlebury.edu/zoteromiddlebury/}.
+  
+  \emph{R Markdown} uses \emph{pandoc} (\url{http://pandoc.org/}) to build
+  its bibliographies. One nice caveat of this is that you won't have to do
+  a second compile to load in references as standard LaTeX requires. To
+  cite references in your thesis (after creating your bibliography
+  database), place the reference name inside square brackets and precede
+  it by the ``at'' symbol. For example, here's a reference to a book about
+  worrying: (Molina \& Borkovec, 1994). This \texttt{Molina1994} entry
+  appears in a file called \texttt{thesis.bib} in the \texttt{bib} folder.
+  This bibliography database file was created by a program called BibTeX.
+  You can call this file something else if you like (look at the YAML
+  header in the main .Rmd file) and, by default, is to placed in the
+  \texttt{bib} folder.
+  
+  For more information about BibTeX and bibliographies, see our CUS site
+  (\url{http://web.reed.edu/cis/help/latex/index.html})\footnote{Reed~College
+    (2007)}. There are three pages on this topic: \emph{bibtex} (which
+  talks about using BibTeX, at
+  \url{http://web.reed.edu/cis/help/latex/bibtex.html}),
+  \emph{bibtexstyles} (about how to find and use the bibliography style
+  that best suits your needs, at
+  \url{http://web.reed.edu/cis/help/latex/bibtexstyles.html}) and
+  \emph{bibman} (which covers how to make and maintain a bibliography by
+  hand, without BibTeX, at
+  \url{http://web.reed.edu/cis/help/latex/bibman.html}). The last page
+  will not be useful unless you have only a few sources.
+  
+  If you look at the YAML header at the top of the main .Rmd file you can
+  see that we can specify the style of the bibliography by referencing the
+  appropriate csl file. You can download a variety of different style
+  files at \url{https://www.zotero.org/styles}. Make sure to download the
+  file into the csl folder.
+  
+  \textbf{Tips for Bibliographies}
+  \begin{itemize}
+  \tightlist
+  \item
+    Like with thesis formatting, the sooner you start compiling your
+    bibliography for something as large as thesis, the better. Typing in
+    source after source is mind-numbing enough; do you really want to do
+    it for hours on end in late April? Think of it as procrastination.
+  \item
+    The cite key (a citation's label) needs to be unique from the other
+    entries.
+  \item
+    When you have more than one author or editor, you need to separate
+    each author's name by the word ``and'' e.g.
+    \texttt{Author\ =\ \{Noble,\ Sam\ and\ Youngberg,\ Jessica\},}.
+  \item
+    Bibliographies made using BibTeX (whether manually or using a manager)
+    accept LaTeX markup, so you can italicize and add symbols as
+    necessary.
+  \item
+    To force capitalization in an article title or where all lowercase is
+    generally used, bracket the capital letter in curly braces.
+  \item
+    You can add a Reed Thesis citation\footnote{Noble (2002)} option. The
+    best way to do this is to use the phdthesis type of citation, and use
+    the optional ``type'' field to enter ``Reed thesis'' or
+    ``Undergraduate thesis.''
+  \end{itemize}
   \section{Anything else?}\label{anything-else}
+  
+  If you'd like to see examples of other things in this template, please
+  contact the Data @ Reed team (email
+  \href{mailto:data@reed.edu}{\nolinkurl{data@reed.edu}}) with your
+  suggestions. We love to see people using \emph{R Markdown} for their
+  theses, and are happy to help.
   
   \chapter*{Conclusion}\label{conclusion}
   \addcontentsline{toc}{chapter}{Conclusion}
@@ -281,16 +465,80 @@ starts here.
   chunk tag) to help with readibility and/or setup.
   
   \textbf{In the main Rmd file}
-  
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \CommentTok{# This chunk ensures that the thesisdown package is}
+  \CommentTok{# installed and loaded. This thesisdown package includes}
+  \CommentTok{# the template files for the thesis.}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
+    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(thesisdown))}
+  \NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"ismayc/thesisdown"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(thesisdown)}
+  \end{Highlighting}
+  \end{Shaded}
   \textbf{In Chapter \ref{ref-labels}:}
-  
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \CommentTok{# This chunk ensures that the thesisdown package is}
+  \CommentTok{# installed and loaded. This thesisdown package includes}
+  \CommentTok{# the template files for the thesis and also two functions}
+  \CommentTok{# used for labeling and referencing}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
+    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr))}
+      \KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
+      \KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
+      \KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(thesisdown))\{}
+    \KeywordTok{library}\NormalTok{(devtools)}
+  \NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"ismayc/thesisdown"}\NormalTok{)}
+  \NormalTok{  \}}
+  \KeywordTok{library}\NormalTok{(thesisdown)}
+  \NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/flights.csv"}\NormalTok{)}
+  \end{Highlighting}
+  \end{Shaded}
   \chapter{The Second Appendix, for
   Fun}\label{the-second-appendix-for-fun}
+  
+  \backmatter
   
   \chapter*{References}\label{references}
   \addcontentsline{toc}{chapter}{References}
   
-  Placeholder
+  \noindent
+  
+  \setlength{\parindent}{-0.20in} \setlength{\leftskip}{0.20in}
+  \setlength{\parskip}{8pt}
+  
+  \hypertarget{refs}{}
+  \hypertarget{ref-angel2000}{}
+  Angel, E. (2000). \emph{Interactive computer graphics : A top-down
+  approach with opengl}. Boston, MA: Addison Wesley Longman.
+  
+  \hypertarget{ref-angel2001}{}
+  Angel, E. (2001a). \emph{Batch-file computer graphics : A bottom-up
+  approach with quicktime}. Boston, MA: Wesley Addison Longman.
+  
+  \hypertarget{ref-angel2002a}{}
+  Angel, E. (2001b). \emph{Test second book by angel}. Boston, MA: Wesley
+  Addison Longman.
+  
+  \hypertarget{ref-Molina1994}{}
+  Molina, S. T., \& Borkovec, T. D. (1994). The Penn State worry
+  questionnaire: Psychometric properties and associated characteristics.
+  In G. C. L. Davey \& F. Tallis (Eds.), \emph{Worrying: Perspectives on
+  theory, assessment and treatment} (pp. 265--283). New York: Wiley.
+  
+  \hypertarget{ref-noble2002}{}
+  Noble, S. G. (2002). \emph{Turning images into simple line-art}
+  (Undergraduate thesis). Reed College.
+  
+  \hypertarget{ref-reedweb2007}{}
+  Reed~College. (2007, March). LaTeX your document. Retrieved from
+  \url{http://web.reed.edu/cis/help/LaTeX/index.html}
 
 
   % Index?
