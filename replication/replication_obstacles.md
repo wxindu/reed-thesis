@@ -29,7 +29,7 @@
 
 - Data
     - Failed to find data files in the same format. The original study used `.sav` data file, but only successfully obtained Microsoft Access files. Too large to be directly extracted and imported to RStudio. Currently working on importing the dataset
-    
-- Code
+    - The dataset was successfully imported, however, the variables in the obtained dataset are slightly different than variables in the dataset used by Orben. All variables used by Orben, formated as q*n* for some integer *n*, which refers to the *n*th question in the survey, are off by 1 in the dataset obtained. For example, the q81 used in the dataset obtained by Orban should be changed to q80 in mine so that they actually refer to the same variable. 
 
 - Replication
+     - Successfully replicated Orben's results in SCA. 
