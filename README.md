@@ -12,4 +12,4 @@ Amy Orben published a paper *The association between adolescent well-being and d
 ### Progress Updates
 
 - [09/30/2019] Datasets used by Orben (mostly) found. Waiting for UK Data Service registration request(MCS). 
-- [11/6/2019] Replications in process. Successful replication of MCS and YRBS SCA results. Permutation test currently running. MTF datasets yet to be merged. 
+- [11/6/2019] Replications in progress. Successful replication of MCS and YRBS SCA results. Permutation test currently running. MTF datasets yet to be merged. 
