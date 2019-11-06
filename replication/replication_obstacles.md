@@ -39,5 +39,5 @@
 - Code error
     - To count the number of estimated coefficients with negative/poistive signs, Orben used the code: 
         `table(sign(results_frame[["effect"]]))[["-1"]]` and 
-        `table(sign(results_frame[["effect"]]))[["1"]]`. This will return an error when all estimated "effect" have negative/positive results of `subscript out of bounds`.
+        `table(sign(results_frame[["effect"]]))[["1"]]`. This will return an error when all estimated "effect" have same signs: `subscript out of bounds`.
         Changing the code to `sum(sign(results_frame[["effect"]]) == "-1")` and `sum(sign(results_frame[["effect"]]) == "1")` now allows the code to run without this error. 
