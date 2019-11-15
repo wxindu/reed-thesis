@@ -1,8 +1,10 @@
 # Replication {#replication}
 
-## Data
+This section discusses the attempt to replicate Orben's study, understand how SCA is used in the study, and summarize the methodological flaws in this application. All three datasets used in Orben's study can be found through public sources. The code used for this replication were forked from Orben's github site and modified to fit with data obtained. 
 
-\par Three large-scale social datasets were used in Orben's study--Monitoring the Future (MTF) and Youth Risk and Behavior Survey (YRBS) from the United States of America, and Millennium Cohort Study (MCS) from the United Kingdom. The three datasets encompass survey answers from adolescents aged predominately 12-18 in the time period of 2007 to 2016. The surveys provided measures of adolescents' psychological well-being and digital technology use and have been used in multiple existing psychology studies. 
+## Data and Reprocessing
+
+\par Three large-scale social datasets were used in Orben's study: Monitoring the Future (MTF) from the US [cite], Youth Risk and Behavior Survey (YRBS) from the US [cite], and Millennium Cohort Study (MCS) from the United Kingdom [cite]. The three datasets were all survey data obtained from scientific study of the same name, and encompass survey answers from adolescents aged predominately 12-18 in the time period of 2007 to 2016. The datasets provided wide measures of adolescents' psychological well-being and digital technology use. A considerable number of psychology studies in the existing literature were conducted based on the large-scale studies, which provided wide selection of approaches to modeling and analysis based on the specific dataset. 
     
 ### YRBS
 
@@ -11,12 +13,16 @@
 - Data were successfully found. While Orben used data in `.sav` file, was only able to obtain data in Microsoft Access format. Include same observations. 
 - Can be accessed publicly
 
+\par The same dataset as used by Orben was obtained. While Orben used the SPSS format data, we obtained data through Microsoft Access and extracted the datasets into excel format. The same number of observations, 37,402 girls and 37,412 boys from 2007 to 2015 are included, along with the same set of variables as used by Orben. One noticeable obstacle in this step was, since the study is conducted anually and is still ongoing, the survey have been updated in the recent years. The majority of the variables in the dataset are to survey questions, and indices of the questions are used as the variable names. The recent updates in survey questions result in changes of indices for survey questions, and thus lead to mismatches of variable names between those used in Orben's study and the ones used in the present study. Careful research and recoding have been done to ensure the exact same set of variables as used by Orben were obtained for the replication. 
+
 ### MTF
 
 - launched in 1975, an annual nationally representative survey of approximately 50,000 US adolescents in grades 8, 10 and 12. Surveys on adolescents in grade 12 were not used in the analysis since "many of the key items of interest cannot be correlated in their survey". 
 - The sample used were collected from 2008 to 2016, included 136,190 girls and 132,482 boys. Exact ages of the participants were removed for anonymization in the dataset. 
 - Data were successfully found. While Orben used data in `.sav` file, was only able to obtain data in `.rda` format. 
 - Can be accessed publicly
+
+\par In Orben's study, a merged dataset containing MTF data from 2008 to 2016 was used. While the MTF data for each year is publicly accessible, no access to a merged MTF dataset for the specified years was found. During the time period of 2008 to 2016, the survey has been updated multiple times, along with changes in data file format after RStudio's release in the year of 2011. With the frequent updates in the annual surveys, the variables names vary greatly among the datasets from each year. These bring excessive difficulties to obtain the exact same dataset as used in Orben's study for replication purpose. A great number of data wrangling had to be done for successful replication. 
 
 ### MCS
 
@@ -25,29 +31,27 @@
 - Data were successfully found. While Orben used data in `.csv` file, was only able to obtain data in `.sav` format. 
 - Needed to submit request for access of data
 
-## Processing
+\par The same dataset as used by Orben was obtained. The access to the data is open to public but require specific permission. While Orben obtained data in csv format, we were only able to obtain data in SPSS format. The same set of observations, with 5926 girls and 5946 boys borned between September 2000 and January 2001 were included in the dataset, along with the same set of variables as used in Orben's study. Different than working with YRBS and MTF, the variable names in the obtained dataset matches well with the variable names in the dataset used by Orben. However, instead of using numerical indices to represent survey answers, the variable values were all in characters with the specific content used in the surveys. After careful reprocessing, all variable values were transformed to the exact numerical indices that match with the values of variables used in Orben's study. However, possibly for confidential purpose, two variables--one related to family incomes and one related to siblings--had only NA values in the obtained dataset. The two variables were used as control variables in Orben's study. As we fail to obtain the two variables, they were removed for this attempt to replication.  
 
-- With a close look into Orben's code, https://github.com/OrbenAmy/NHB_2019, the values included in the datasets obtained were in different form than the values included in the datasets used by Orben. While Orben had all numerical values, with numbers being the index of survey answers, the datasets obtained had characteristic values, as a combination of numerical index and actual survey answer in characters. Data processing is thus needed to replicate Orben's code. 
+## Replication
 
-### YRBS
+\par After obtainning the datasets we start the replication of Orben's study. The replication consists of two parts, the replication of SCA analysis for each dataset, and the replication of the SCA permutation test, which is supposed to be used to evaluate the model's resistance in response to changes in specifications. In the following section we discuss the procedure, obstacles and resolution to obstacles of replicating the analysis for each of the study. 
 
-### MTF
+### SCA
 
-### MCS
+\par The first part of the replication is to replicate the single SCA analysis for each dataset. All the replications in this section used the exact code as available on Orben's github repository. As some of the variable names had to be recoded, slight modifications were made to the existing code to match with the actual used variable names. All code were ran successfully using the exact same set of specifications (except the removal of two control variables in the MCS study). 
 
-- All variables used in Orben's study were reprocessed. Refered back to the survey questionnaire for the correct numerical index of survey answers. Most variables were successfully reprocessed and reruning Orben's code on the processed variables was successful
-- Failed to obtain two variables. The variables had all NA values in the dataset. One related to family income and the other related to siblings at home. The two variables served as control variables in the SCA analysis. Thus both were removed to continue replication. 
-- All other code were ran successfully without significant changes. (only changed file directories)
+\par All specifications used by Orben were about inclusion or exclusion of variables. More specifically, there were mainly two types of specifications used by Orben: (1) Which variable to use as the independent variable "technology use", (2) which variable to use as the dependent variable "adolescent well-being", (3) whether or not to include a set of control variables in the regression. A detailed assessment to the rationality of these specifications will be provided in the next section. Based on the way the specifications were identified, along with the fact that a large number of variables are available in two of the datasets (MCS and MTF), a large number of alternative specifications were determined by Orben for those two studies. Since constructing a SCA analysis with all proposed specifications can be extremely computational expensive, Orben randomly extracted subsets of specifications, and conducted SCA based on the subset of specifications. In the code that's publically available, Orben did not specify the seed used for the random subsets. Thus this replication cannot replicate the exact same set of specifications as Orben used, instead, a random subset of specifications with same size was used. Considering that the number of specifications is large and the subset process is completely random, this difference should not result in significant difference between the replication results and Orben's results, but could result in mismatches to some extent. 
 
-## SCA Results
+\par The problem does not exist for the study YRBS. There were less variables available in the dataset which, according to Orben, could be used to represent technology use and adolescent well-being. The number of specifications identified in this study is of reasonable size, so the exact set of specifications were used for this replication. The result matches well with Orben's result. The median coefficient of the independent variable in the YRBS study was found to be $Median(\beta) = -0.035$  in Orben's study. The result obtained in this replication, when rounded to the same digits, is also -0.035. 
 
-### YRBS
+\par The replication result for MCS, although not as perfect as the result for YRBS, was very close to Orben's result. While Orben obtained $Median(\beta) = -0.032$, this replication obtained $Median(\beta) = -0.0328$. The difference in results is very small. Considering the fact that we are not able to obtain the exact same set of specifications used for the SCA, and that two control variables had to be taken out due to NA values, the difference in results should be reasonable. 
 
-### MTF
+### Permutation test
 
-### MCS
+## Methodological Flaws
 
-- The replicated SCA result had $\beta = -0.0328$, while in Orben's study $\beta = -0.032$. The result obtained in the replication study is very close to the original result. Consider two variables were removed from the control group, the result seems reasonable. 
+
 
 ## Replication Obstacles
 
