@@ -4,12 +4,14 @@ Amy Orben published a paper *The association between adolescent well-being and d
 
 
 ### Timeline
-- [ ] Second chapter (Orben Replication) draft complete (based on current progress) by the week of 11-25-2019
-- [ ] Science literature Review complete by the week of 11-25-2019
-- [ ] SCA lit review + permutation test lit review by the week of 12-2-2019
-- [ ] first + second chapter draft complete 12-16-2019
-- [ ] first draft of full document done
-- [ ] final draft of full document done
+- [ ] 12-13-2019 Science Literature research finish, outlines for writing ready
+- [ ] 12-20-2019 Method (SCA) Literature research finish, outlines for first chapter writing ready
+- [ ] Over the break: First and Second chapter writings finish, MTF replication finish
+- [ ] 12-30-2019 First and Second chapter draft ready
+- [ ] 4-17-2020 Submit first draft
+- [ ] 5-1-2020 Submit final draft
+- [ ] 3-1-2020 Approach 3rd and 4th reader
+- [ ] 2-1-2020 Approach Orben
 
 ### Progress Updates
 
