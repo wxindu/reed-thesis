@@ -36,15 +36,30 @@
     - links vary as a functon of when digital tech are used (weekday vs weekend)
     - "the evidence indicated that moderate use of digital technology is not intrinsically harmful and may be advantageous in a connected world. The findings inform recommendations for limiting adolescents’ technology use and provide a template for conducting rigorous investigations into the relations between digital technology and children’s and adolescents’ health."
 
+- **Looked at the different tech separately; evidence that not appropriate to use the sum of hours of different tech**
+- **Considered when the tech was used**
+- **quadratic regression**
+
+
 **********************
 
 **Do television and electronic games predict children's psychosocial adjustment? Longitudinal research using the UK Millennium Cohort Study**
 - https://adc.bmj.com/content/98/5/341?__hstc=258350677.96fa4fac36c81684c5efc9c0405ec622.1455235200101.1455235200102.1455235200103.1&__hssc=258350677.1.1455235200104&__hsfp=3972014050
 - This paper focuses specifically on watching TV and electronic games and psychosocial adjustment. 
 - MCS data was used
-- Variables used for technology: **[To be added]**
-- Variables used for mental well being (or related): **[To be added]**
-- Result: **[To be added]**
+- purpose: 
+    - explore how time watching TV and playing electronic games at age 5 years each predicts change in psychosocial adjustment in a representative sample of 7--year-olds from the UK
+- method: 
+    - regression
+- Variables used for technology: 
+    - daily hours viewing tv and playing electronic games
+- Variables used for mental well being (or related):
+    - Conduct problems, emotional symptoms, peer relationship problems, hyperactivity/inattention and prosocial behaviour were reported by mothers using the Strengths and Difficulties Questionnaire. Change in adjustment from age 5 years to 7 years was used. 
+- Result: 
+    - TV but not electronic games predicted a small increase in conduct problems. Screen time did not
+predict other aspects of psychosocial adjustment. Further work is required to establish causal mechanisms.
+
+- **Different tech are looked separately**
 
 ***********************
 
@@ -54,7 +69,7 @@
 - MCS data was used
 - Variables used for technology: TV and computer use and TV in the bedroom
 - Variables used for mental well being (or related): NA
-- Result: **[To be added]**
+- Result: having a bedroom TV at age 7 years was associated with significantly higher BMI and FMI and increased risk of being overweight (relative risk (RR) at age 11 years, compared with having no bedroom TV. Hours spent watching TV or digital versatile disks were associated with increased risk of overweight among girls only. Computer use at age 7 years was not related to later body fatness for either gender.
 
 ************************
 
