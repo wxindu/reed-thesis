@@ -97,6 +97,25 @@ predict other aspects of psychosocial adjustment. Further work is required to es
 
 
 *************************
+**Do Social Network Sites Enhance or Undermine Subjective Well-Being? A Critical Review**
+- http://selfcontrol.psych.lsa.umich.edu/wp-content/uploads/2017/01/sipr12033.pdf
+- This paper focuses on reviewing the existing literature and consider the consequences of interacting with social network sites for subjective well-being. They found two main results: 1. "passively"using social network sites has negative relationship with subjective well-being; 2. "actively" using social network sites has positive relationship with subjective well-being. 
+- Note-worthy: 
+    - "Studies examining the impact of overall internet usage on subjective wellbeing are not included here, as categorizing all internet activities (including social network usage) into one overarching category is considered suboptimal (Bessiere, Kiesler, Kraut, & Boneva, 2008; Burke, Kraut, & Marlow, 2011). **Evidence in literature of categorize internet activities into overarching category is suboptimal**
+    - The article provided detailed features of what was understood as "social network sites" and "subjective well-being."
+    - The article reviewed two type of existing studies: 
+        - early empirical studies on overall social network usage and subjective well-being: encompasses studies that assess time spent on social network sites without specifying how people interact with such sites when they are on them. 
+        - recent studies that examine the relationship between different forms of social network usage and subjective well-being (active usage vs passive usage)
+    - The designs of the studies can be mainly categorized as: cross-sectional designs; longitudinal designs; experimental designs. Due to our interest in topic, look at the longitudinal designs. On study was discussed in the early empirical studies: 
+        - "They found that Facebook usage predicted decreases in affective subjective well-being over time such that participants felt 8% worse when they engaged Facebook usage “a lot” during the time period between any two affect assessments compared to when they did not use Facebook at all. In contrast, affective subjective wellbeing did not predict subsequent changes in Facebook usage."
+        - (In general, "initial studies on overall usage of social networks sites and subjective well-being" result in a mixed pattern of findings. 
+        - On study found active Facebook user are positively related to life satisfaction, the opposite for passive Facebook use; One study found no effect on subjective well-being from active Facebook usage but declines in well-being over time by passive usage; Another study found similar result as the first one; another study found negative effect from passive usage of Facebook on some assessments but not cognitive subjective well-being, no effct for active usage. 
+    - The study also provided lots of information on how to understand the relationship between social network sites and subjective well-being. Need to refer back when later constructing own SCA models. (And also refer back for details in actual writing, too many details so not include here)
+
+*************************
+
+
+
 
 **Friend Networking Sites and Their Relationship to Adolescents' Well-Being and Social Self-Esteem** [No free access]
 - https://www.liebertpub.com/doi/abs/10.1089/cpb.2006.9.584
