@@ -11,36 +11,26 @@
     - i) assesses whether social media use is associated with adolescents' depressive symptoms,
     - ii) investigates multiple potential explanatory pathways via online harassment, sleep, self-esteem and body image.
 - MCS data was used
-- Note-worthy: 
-    - *displacement hypothesis* (Neuman, 1988): the harms of technology are directly proportional to exposure; Effects are claimed to be negative because digital activities supplant alternate activities such as socializing with peers and family, reading books, or exercising. 
-    - *digital Goldilocks hypothesis* (Etchells, Gage, Rutherford, & Munafo, 2016; Parkes, Sweeting, Wight, & Henderson, 2013; Przybylski, 2014) tech use at moderate levels is not intrinsically harmful, and may be advantageous in a connected world, whereas "overuse" may indeed displace alternate activities. "too little" tech use may deprive young people of important social information and peer pursuits. The hypothesis postulates that there are empirically derivable balance points, moderate levels, that are "just right" for optimally connected young people. 
-    - studies found evidence that digital engagement, including games, may not be disruptive, may even support development. 
-    - "The research reported here was the first to systematically test for curvilinear relations between well-being and screen time measured continuously, separately for different digital activities and days of the week." 
-    - Did not include which year the MCS study was used
-- Variables used for technology: 
-    - "Participants were asked four questions regarding their engagement in different kinds of digital activities during their free time. Specifically, they were asked about watching films and other media (e.g., TV programs), playing games (e.g., on computers and consoles), using computers (e.g., Internet, e-mail), and using smartphones (e.g., social networking, chatting online)."
-    - "Finally, when we examined the distributions of total digital-screen time, the sums of the estimates, it was clear that many participants had reported simultaneous screen use; approximately 20% of the sample reported a sum of more than 12 hr of engagement on weekdays, and 35% of the sample reported a total of more than 12 hr on weekend days. Given that these values were consistent with earlier research demonstrating that digital media are often used in parallel (Eynon & Helsper, 2015), it did not make theoretical or practical sense to follow the original plan to test these summed screen-time estimates."
-- Variables used for mental well being (or related): 
-    - Warwick-Edinburgh Mental Well-Being Scale was used to measure the happinessm life satisfcation, psychological functioning and social functioning of paricipants. 
-- Control variables: 
-    - gender; 
-    - binary variable: 1 if residence in an area in the upper two quintiles of the multiple deprivation index (high scores on unemployment, crime, poor public servicesm barriers to housing), 0 if residence in an are in the lower two quintiles; 
-    - binary variable: 0 if self-identified as white, 1 otherwise. 
-- Method: 
-    - preregistered analytic strategy available osf.io/b4cgq
-    - both linear and quadratic regression
-    - look at tech use separately: films & TV; games; computers; smartphones;
-    - look at weekday/weekend separately
-- Result: 
-    - significant quadratic term
-    - links vary as a functon of when digital tech are used (weekday vs weekend)
-    - "the evidence indicated that moderate use of digital technology is not intrinsically harmful and may be advantageous in a connected world. The findings inform recommendations for limiting adolescents’ technology use and provide a template for conducting rigorous investigations into the relations between digital technology and children’s and adolescents’ health."
-
-- **Looked at the different tech separately; evidence that not appropriate to use the sum of hours of different tech**
-- **Considered when the tech was used**
-- **quadratic regression**
-
-
+- Purpose: 
+    - To assess whether social media use is associated with depressive symptoms in adolescnets
+    - To investigate potential explanatory pathways for observed associations - via online harassment, sleep, self-sesteem and body image. 
+- Variable used for technology: 
+    - This paper focuses particularly on social media use. They used the variable asking for hours on social media on week day. They transformed the variable, so instead of having 7 levels, they used a variable with 5 levels, "none", "<1h", "1 - <3h",...
+- Variable used for mental well-being:
+    - "Participants completed theMood and Feelings Questionnaire – short version (SMFQ) from which a summed score was created [28]. The SMFQ comprises 13 items on affective symptoms in the last 2 weeks
+(see Box 1). In supplementary analysis we derived a binary variable to capture the presence of clinically relevant symptoms using a cut point of ≥12"
+- Control Variables: 
+    - Questionnaire items on online harassment, sleep, self-esteem and body image; family income – equivalised fifths; family structure (two vs one parent); and age in years
+- Method
+    - linear regression with: 
+        - Model 0 – social media use plus confounders (family income, family structure, age, internalising symptoms at age 11) 
+        - Model 1 – M0 plus online harassment 
+        - Model 2 – M0 plus sleep quantity and quality (sleep hours, latency and disruption) 
+        - Model 3 – M0 plus self-esteem
+        - Model 4 – M0 plus body image (happy with appearance and body weight satisfaction)
+- Note-worthy findings: 
+    - Greater social media use related to online harassment, poor sleep, low self-esteem and poor body image; in turn these related to higher depressive symptomscores
+    - Multiple potential intervening pathways were apparent, for example: greater hours social media use related to body weight dissatisfaction (≥5 h 31% more likely to be dissatisfied), which in turn linked to depressive symptom scores directly (body dissatisfaction 15% higher depressive symptom scores) and indirectly via self-esteem.
 **********************
 
 **Do television and electronic games predict children's psychosocial adjustment? Longitudinal research using the UK Millennium Cohort Study**
@@ -76,9 +66,35 @@ predict other aspects of psychosocial adjustment. Further work is required to es
 **A Large-Scale Test of the Goldilocks Hypothesis: Quantifying the Relations Between Digital-Screen Use and the Mental Well-Being of Adolescents**
 - https://journals.sagepub.com/doi/10.1177/0956797616678438
 - This paper focuses specifically on "digital screen time", including time spent on "watching films and other media (e.g., TV programs), playing games (e.g., on computers and consoles), using computers (e.g., Internet, e-mail), and using smartphones (e.g., social networking, chatting online).", and adolescents' mental well being. 
-- Variables used for technology: digital screen time
-- Variables used for mental well being (or related): Warwick-Edinburgh Mental Well-Being Scale
-- Results: **[To be added]**
+- Note-worthy: 
+    - *displacement hypothesis* (Neuman, 1988): the harms of technology are directly proportional to exposure; Effects are claimed to be negative because digital activities supplant alternate activities such as socializing with peers and family, reading books, or exercising. 
+    - *digital Goldilocks hypothesis* (Etchells, Gage, Rutherford, & Munafo, 2016; Parkes, Sweeting, Wight, & Henderson, 2013; Przybylski, 2014) tech use at moderate levels is not intrinsically harmful, and may be advantageous in a connected world, whereas "overuse" may indeed displace alternate activities. "too little" tech use may deprive young people of important social information and peer pursuits. The hypothesis postulates that there are empirically derivable balance points, moderate levels, that are "just right" for optimally connected young people. 
+    - studies found evidence that digital engagement, including games, may not be disruptive, may even support development. 
+    - "The research reported here was the first to systematically test for curvilinear relations between well-being and screen time measured continuously, separately for different digital activities and days of the week." 
+    - Did not include which year the MCS study was used
+- Variables used for technology: 
+    - "Participants were asked four questions regarding their engagement in different kinds of digital activities during their free time. Specifically, they were asked about watching films and other media (e.g., TV programs), playing games (e.g., on computers and consoles), using computers (e.g., Internet, e-mail), and using smartphones (e.g., social networking, chatting online)."
+    - "Finally, when we examined the distributions of total digital-screen time, the sums of the estimates, it was clear that many participants had reported simultaneous screen use; approximately 20% of the sample reported a sum of more than 12 hr of engagement on weekdays, and 35% of the sample reported a total of more than 12 hr on weekend days. Given that these values were consistent with earlier research demonstrating that digital media are often used in parallel (Eynon & Helsper, 2015), it did not make theoretical or practical sense to follow the original plan to test these summed screen-time estimates."
+- Variables used for mental well being (or related): 
+    - Warwick-Edinburgh Mental Well-Being Scale was used to measure the happinessm life satisfcation, psychological functioning and social functioning of paricipants. 
+- Control variables: 
+    - gender; 
+    - binary variable: 1 if residence in an area in the upper two quintiles of the multiple deprivation index (high scores on unemployment, crime, poor public servicesm barriers to housing), 0 if residence in an are in the lower two quintiles; 
+    - binary variable: 0 if self-identified as white, 1 otherwise. 
+- Method: 
+    - preregistered analytic strategy available osf.io/b4cgq
+    - both linear and quadratic regression
+    - look at tech use separately: films & TV; games; computers; smartphones;
+    - look at weekday/weekend separately
+- Result: 
+    - significant quadratic term
+    - links vary as a functon of when digital tech are used (weekday vs weekend)
+    - "the evidence indicated that moderate use of digital technology is not intrinsically harmful and may be advantageous in a connected world. The findings inform recommendations for limiting adolescents’ technology use and provide a template for conducting rigorous investigations into the relations between digital technology and children’s and adolescents’ health."
+
+- **Looked at the different tech separately; evidence that not appropriate to use the sum of hours of different tech**
+- **Considered when the tech was used**
+- **quadratic regression**
+
 
 *************************
 
