@@ -137,6 +137,7 @@ starts here.
 %% End Preamble
 %%
 %
+
 \begin{document}
 
 % Everything below added by CII
@@ -144,13 +145,16 @@ starts here.
   
   \frontmatter % this stuff will be roman-numbered
   \pagestyle{empty} % this removes page numbers from the frontmatter
+
       \begin{acknowledgements}
       I want to thank a few people.
     \end{acknowledgements}
+  
       \begin{preface}
       This is an example of a thesis setup to use the reed thesis document
       class (for LaTeX) and the R bookdown package, in general.
     \end{preface}
+  
       \hypersetup{linkcolor=black}
     \setcounter{tocdepth}{2}
     \tableofcontents
@@ -158,153 +162,515 @@ starts here.
       \listoftables
   
       \listoffigures
+  
       \begin{abstract}
       The preface pretty much says it all. \par  Second paragraph of abstract
       starts here.
     \end{abstract}
+  
       \begin{dedication}
       You can have a dedication here if you wish.
     \end{dedication}
+  
   \mainmatter % here the regular arabic numbering starts
   \pagestyle{fancyplain} % turns page numbering back on
 
   \chapter*{Introduction}\label{introduction}
   \addcontentsline{toc}{chapter}{Introduction}
   
-  \chapter{Background}\label{background}
-  
-  \section{Specification Curve Analysis
-  (SCA)}\label{specification-curve-analysis-sca}
-  
-  \section{Orben's Study}\label{orbens-study}
-  
-  \chapter{Replication}\label{replication}
-  
-  \section{Data}\label{data}
+  \chapter{SCA and Its Applications}\label{sca-and-its-applications}
   
   \par 
   
-  Three large-scale social datasets were used in Orben's study--Monitoring
-  the Future (MTF) and Youth Risk and Behavior Survey (YRBS) from the
-  United States of America, and Millennium Cohort Study (MCS) from the
-  United Kingdom. The three datasets encompass survey answers from
-  adolescents aged predominately 12-18 in the time period of 2007 to 2016.
-  The surveys provided measures of adolescents' psychological well-being
-  and digital technology use and have been used in multiple existing
-  psychology studies.
+  It has come to researchers' attention that, the minor decisions made by
+  researchers along the way of performing a data analysis can have a
+  larger effect on the final research output than expected. A dataset can
+  be analyzed in lots of different ways as there are a great number of
+  decisions that can be made by a researcher: which statistical test to
+  perform, which variables to include, which transformation to make on
+  variables, etc. And by making specific decisions along the way, such as
+  ``multiple comparison'', it is possible to find a p-value of less than
+  0.05 on data with absolutely no relationship. This problem is often
+  called ``p-hacking'' or ``researcher degrees of freedom''. A great
+  number of recent studies looked into this problem closely, and it's been
+  discovered that even if researchers are not consciously performing the
+  action of ``p-hacking'', when the details in a data analysis are too
+  contingent on data, there can still be the problem of multiple potential
+  comparisons (cite Gelman and Loken 2013). It is now commonly realized
+  that simply following the traditionally appropriate way to conduct a
+  data analysis and look for a statistically significant p-value is no
+  longer sufficient to produce reliable results.
+  
+  \par 
+  
+  The decisions made by a researcher, or in the other term, the
+  specifications, are often a small subset of a much larger set of valid
+  specifications. Thus there can be great limitation on the conclusiveness
+  of the results, as the results usually hinge on the selected
+  specifications, and sometimes the selection of specifications are made
+  under researchers' hope to produce a publishable exciting story. Methods
+  have been proposed to work around with the existence of such problem,
+  and one approach taken in social science is to consider the robustness
+  of models in response to alternative specifications. It is the
+  consideration that, assuming some alternative sets of specifications
+  were chosen by the researchers, how would the different results agree
+  with each other. From there it is possible to get a sense of how greatly
+  the original result hinges on the choices of specifications. The one
+  method that will be focused on in this thesis is the Specification-curve
+  analysis (SCA), proposed by Simonsohn, Simmons, Nelson in 2015. SCA
+  considers non-overlapping sets of reasonble specifications and the
+  potential different conclusions that one can arrive on. The method
+  provides a way to visualize the different results one can arrive based
+  on the different choices of specifications and to have a general
+  understanding on where the differences may orginate from. Most
+  importantly, it provides an assessment of a model's robustness in
+  response to changes in specifications.
+  
+  \par 
+  
+  The few applications of SCA are all in the field of psychology. Several
+  psychologists have applied this method on controversial topics which
+  gather global attention. However, some usage of the method seens to be
+  deviated from the original purpose of the method, and the conclusion
+  drawn by the analysis remains questionable. One of the major application
+  of SCA, the study of the association between adolescent well-being and
+  digital technology use by Orben and Przybylski published on nature in
+  2019, is one of such applications. After a full replication of Orben's
+  study, it's found that the main problems of this study lie in the
+  misunderstanding of the type of specifications that SCA works with, and
+  the inference of the SCA result. The replication and details on the
+  problems will be discussed in Chapter 2. In the following sections, we
+  will introduce in details about SCA, its existing applications, and
+  Orben's application.
+  
+  \par 
+  
+  (The thesis also focuses on\ldots{} formal inference method for SCA?
+  Potential improvement of the method?)
+  
+  \section{Specification-Curve
+  Analysis}\label{specification-curve-analysis}
+  
+  \par 
+  
+  Conducting a specification-curve analysis involves three steps: (1)
+  Identifying set of specifications, (2) Estimate all specifications and
+  construct a descriptive specification curve, (3) Conduct inferential
+  analysis on a specification curve. This section discusses the details in
+  each step, along with the important assumptions and concepts of the
+  method.
+  
+  \subsection{Specifications}\label{specifications}
+  
+  \par 
+  
+  The first step of conducting a Specification-Curve Analysis is to
+  enumerate the set of specifications to be considered.
+  Specficiation-Curve Analysis focuses on a specific set of
+  specifications: the set of specifications which are (1) consistent with
+  the underlying theory, (2) expected to be statistically valid, (3) are
+  not redundant with other specifications in the set. The specifications
+  used in a SCA should be the valid and non-redundant specifications
+  considered by the researcher. It is common that different researchers
+  have disagreements over specifications, and when conducting a SCA, a
+  researcher needs only to consider the set of valid specifications in
+  their own perspective. If there are lots of overlaps between two
+  researchers' sets of valid specifications, the results of two SCA's
+  should be similar. If the two sets hardly or even never overlap, the
+  results of two SCA's would be different. And such difference between
+  analyses' results would most likely not be difference happening by
+  chance, but may be originated by something fundamentally different,
+  maybe different underlying theory.
+  
+  \par 
+  
+  One important concept about the Specification-Curve Analysis is that,
+  the specifications considered in an SCA are all operationlization
+  decisions, not theorizing decisions. Say we are conducting an SCA
+  studying the relationship between Y and X. Some appropriate
+  specifications to be used in an SCA can be, ``Do a log transformation on
+  variable X'', ``Exclude these three outliers'', ``Include variable K as
+  control variable'', ``Add an intersection term between X and K'', or
+  ``Do a logit model instead of a probit model''. These specifications all
+  focus on, after the underlying theory is determine and the statistical
+  question has been stated, what type of operations I can do to my model
+  that does not change the main characters in the story but may make small
+  differences that can affect the story ending. But specifications that
+  are based on different underlying theory are not the type of
+  specifications that an SCA can work with. For example, if the question
+  of interest is the relationship between class performance and hair
+  color, where the hair color was intended to be the natural hair color
+  that is determined by genes, using a variable that also considers dyed
+  hair color would not be appropriate, since the action of dyeing hair
+  reveals information regarding personalities, and the choice of hair
+  coloring also reveals information regarding personalities. The
+  relationship between this class performance and this variable will be
+  telling a different story. It would thus not be appropriate in this case
+  to consider the interchange of these two variables as an appropriate
+  specification, as the underlying theories are different.
+  
+  \par 
+  
+  Note that sometimes the set of specifications can be huge and difficult
+  to computationally work with. For example, say we are working on a
+  dataset with 10 variables, and say we have: 1) 2 possible regression
+  model, 2) 2 ways of transforming each of the 10 variables, 3) 3 ways for
+  each variable to deal with outliers, and 4) 10 ways of adding
+  interaction terms, this will result in 12000 different models to run
+  with each model are built based on a different set of specifications.
+  And in reality, the number of variables can be much larger than 10, and
+  the model form can be much more complicated. In case if the set of
+  specifications is too large, it was proposed that a random subset of the
+  specifications can be used instead.
+  
+  \subsection{Specification Curve}\label{specification-curve}
+  
+  \par 
+  
+  The next step will be running estimation on the set of different models
+  based on the enumerated specifications, and then constructing a
+  specification curve. Shown below is an example of a specification curve
+  (cite)
+  
+  \%\texttt{\{r\ SpecCurv,\ fig.cap="Specification\ Curve",\ fig.width=6\}\ \%include\_graphics(path\ =\ "figure/specificationCurve.png")\ \%}
+  \% To be edited
+  
+  \par 
+  
+  As shown in the graph, a descriptive specification curve encompasses two
+  parts: the top plot of a curve, and the bottom plot with lines and dots
+  on it. The curve is the curve of the estimates from each of the model,
+  ordered from lowest value to highest value. In the bottom half of the
+  plot, each dot represents the usage of a specification. The vertical
+  axis are the specifications used. And for each dot on the curve, there
+  is a corresponding column in the bottom plot. If a specification was
+  used in the model that produced this specific estimation, there will be
+  a dot in the column at the position matching with the specification name
+  on the vertical axis. Therefore, overall, it is possible to visualize if
+  there exist certain pattern in choice of combination of specifications
+  and the corresponding estimation. Also included on plot is the
+  indication of the models with statistcially significant estimation. From
+  the plot it is possible to visualize if the statistical significance
+  appears to be happening purely by chance, or if there appears to be some
+  real relationship. If so, if the relationship appears robust under
+  changes in specifications.
+  
+  \subsection{Specification-Curve
+  Analysis}\label{specification-curve-analysis-1}
+  
+  \par 
+  
+  The last step of a SCA is the statistical inference. The question for an
+  inferential analysis, as stated by the authors, is ``\emph(Considering
+  the full set of reasonable specifications jointly, how inconsistent are
+  the results with the null hypothesis of no effect?)''. No step-by-step
+  instructions are given for a complete inferential analysis. It was
+  suggested that using the technique of resampling, one can generate an
+  expected distribution of specification curves when the null hypothesis
+  is true. The examples provided in the paper all used the permutation
+  technique, while it was suggested that a bootstrapping technique is also
+  applicable for studies without random assignment.
+  
+  \par 
+  
+  Three test statistics are proposed for the inferential analysis, but the
+  authors do not specify which ones might be more favored: 1) the median
+  overall point estimate from the specification curve, 2) the share of
+  estimates in specification curve that are of the dominant sign, 3) the
+  share that are of the dominant sign and also statistically significant
+  (p \textless{} 0.05). The dominant sign here refer to the sign of the
+  majority of estimates. If the majority of the estimates in a SCA have
+  positive sign, then the dominant sign will be positive. Generally we
+  would not expect half the estimates to be positive and the rest to be
+  negative, as the different models are not fundamentally different but
+  rather similar at most places. This test statistic performs as a summary
+  of the entire specification curve, and the resampling procedure produces
+  a null distribution of the test statistic. The p-value extracted, as
+  claimed by the authors, will answer the inferential question we
+  proposed. One thing worth noting is the interpretation of the p-value.
+  In the examples listed in the paper, the actual numerical value of the
+  test statistic are not meaningful. The p-value, however, indicates how
+  robust the estimates are in response to changes in specifications. A low
+  p-value indicates inconsistency with the null hypothesis of no effect,
+  indicating strong sign for the existence of statistically significant
+  relationship. A high p-value indicates consistency with the null
+  hypothesis of no effect, suggesting the failure to reject the hypothesis
+  that no relationship exist.
+  
+  \section{Applications of SCA}\label{applications-of-sca}
+  
+  \subsection{Existing applications}\label{existing-applications}
+  
+  \subsection{Orben's Application}\label{orbens-application}
+  
+  \chapter{Replication and Evaluation}\label{replication}
+  
+  This section discusses the attempt to replicate Orben's study along with
+  the assessment of the use of SCA in this study. We begin by introducing
+  the three datasets used, which can all be found through public sources
+  under permission. We then discuss in details the attempt to replicate
+  the study, including the obstacles to overcome during the replication
+  process.
+  
+  \section{Data and Reprocessing}\label{data-and-reprocessing}
+  
+  \par 
+  
+  Three large-scale social datasets were used in Orben's study: Monitoring
+  the Future (MTF) from the US {[}cite{]}, Youth Risk and Behavior Survey
+  (YRBS) from the US {[}cite{]}, and Millennium Cohort Study (MCS) from
+  the United Kingdom {[}cite{]}. The three datasets were all survey data
+  obtained from scientific study of the same name, and encompass survey
+  answers from adolescents aged predominately 12-18 in the time period of
+  2007 to 2016. The datasets provided wide measures of adolescents'
+  psychological well-being and digital technology use. A considerable
+  number of psychology studies in the existing literature were conducted
+  based on the large-scale studies, which provided wide selection of
+  approaches to modeling and analysis based on the specific dataset. In
+  this section, we discuss the background information of the three
+  datasets and the reprocessing of the data obtained from public sources.
   
   \subsection{YRBS}\label{yrbs}
-  \begin{itemize}
-  \tightlist
-  \item
-    launched in 1990, a biennial survey of adolescents that reflects a
-    nationally representative sample of students attending secondary
-    schools.
-  \item
-    Used sample from 2007 to 2015, 37402 girls and 37412 boys were
-    included in the study, age range from ``12 or younger'' to ``18 or
-    older''
-  \item
-    Data were successfully found. While Orben used data in \texttt{.sav}
-    file, was only able to obtain data in Microsoft Access format. Include
-    same observations.
-  \item
-    Can be accessed publicly
-  \end{itemize}
+  
+  \par 
+  
+  The Youth Risk Behavior Surveillance was first launched in 1990, and
+  it's a biennial survey of adolescents that reflects a nationally
+  representative sample of students attending secondary schools. Orben's
+  study focused on the data collected during the time period of 2007 to
+  2015, and the same set of data was obtained through (website
+  name){[}cite{]}. While Orben used data in SPSS format, we were only able
+  to access the data through Microsoft Access. The datasets were extracted
+  and saved under excel format. It was confirmed that same number of
+  observations were included in the obtained dataset as the data used by
+  Orben, 37,402 girls and 37,412 boys from 2007 to 2015. It was also
+  confirmed that all variables used in Orben's study are contained in the
+  obtained dataset. Most of the work in the reprocessing step for YRBS
+  focused on transforming the characteristic values of the variables used
+  by Orben into relative numerical values.
+  
+  \par 
+  
+  One noticeable obstacle in this reprocessing step was, since the study
+  is conducted anually and is still ongoing, the survey questions and
+  indexings have been updated several times in the recent years. The
+  majority of the variables in the datasets are named after the survey
+  questions indexes, and the recent updates in survey questions result in
+  differences of indices for survey questions between the current survey
+  and surveys conducted prior to 2015. This lead to mismatches between
+  variable names in the incorporated dataset including data from year of
+  2015 and prior--the one used by Orben--and the variable names in the
+  dataset obtained for this study, including data from the year of 2017
+  and prior. Careful research and recoding are done to ensure the correct
+  set of variables was used for the replication.
+  
   \subsection{MTF}\label{mtf}
-  \begin{itemize}
-  \tightlist
-  \item
-    launched in 1975, an annual nationally representative survey of
-    approximately 50,000 US adolescents in grades 8, 10 and 12. Surveys on
-    adolescents in grade 12 were not used in the analysis since ``many of
-    the key items of interest cannot be correlated in their survey''.
-  \item
-    The sample used were collected from 2008 to 2016, included 136,190
-    girls and 132,482 boys. Exact ages of the participants were removed
-    for anonymization in the dataset.
-  \item
-    Data were successfully found. While Orben used data in \texttt{.sav}
-    file, was only able to obtain data in \texttt{.rda} format.
-  \item
-    Can be accessed publicly
-  \end{itemize}
+  
+  \par 
+  
+  Monitoring the Future was first launched in the year of 1975, and it is
+  an annual nationally representative survey of approximately 50,000 US
+  adolescents in grades 8, 10 and 12. Surveys on adolescents in grade 12
+  were not used in the analysis since ``many of the key items of interest
+  cannot be correlated in their survey''. Orben focused on the data
+  collected during the time period of 2008 to 2016, which included 136,190
+  girls and 132,482 boys. The data are publicly accessible. In Orben's
+  study, a merged dataset containing MTF data from 2008 to 2016 was used.
+  While the MTF data for each year is publicly accessible, no access to a
+  merged MTF dataset for the specified time period have been found. During
+  the time period of 2008 to 2016, the survey has been updated multiple
+  times, along with one major change in data file format after RStudio's
+  release in the year of 2011. Due to the frequent updates in the annual
+  surveys and changes in data files, the variable names vary greatly among
+  the available datasets. This bring excessive difficulties to obtain the
+  exact same dataset as used in Orben's study for replication purpose.
+  
   \subsection{MCS}\label{mcs}
+  
+  \par 
+  
+  The Millennium Cohort Study follows a specific cohort of children born
+  between September 2000 and January 2001 and collects data from both the
+  children and the caregivers. Orben's study focused specifically on the
+  data collected in 2015, when the participated children were aged between
+  13 and 15. The sample included 5926 girls and 5946 boys along with 10605
+  caregivers. The same dataset as used by Orben was obtained. The access
+  to the data is open to public but require specific permission. While
+  Orben obtained data in csv format, we were only able to obtain data in
+  SPSS format. The same set of observations, with 5926 girls and 5946 boys
+  borned between September 2000 and January 2001, were included in the
+  dataset, along with the same set of variables as used in Orben's study.
+  
+  \par 
+  
+  Unlike working with YRBS and MTF, the variable names in the obtained
+  dataset matches well with the variable names in the dataset used by
+  Orben. However, instead of using numerical indices to represent survey
+  answers, in the dataset obtained, the variable values were all in
+  characters with the specific content refering to the specific survey
+  answer. After careful reprocessing, all variable values were transformed
+  into the exact numerical indices matching with the variables values as
+  were in Orben's study. However, two variables--one related to family
+  incomes and one related to siblings--had only NA values in the obtained
+  dataset. The omissions might be done for confidential purpose. The two
+  variables were used as control variables in Orben's study. As we fail to
+  obtain the two variables, they were removed for this attempt to
+  replication.
+  
+  \section{Replication}\label{replication}
+  
+  \par 
+  
+  After obtainning the datasets we began the replication of Orben's study.
+  The replication consists of two parts, the replication of a single SCA
+  analysis for each dataset, and the replication of the SCA permutation
+  test, which was used by Orben to assess the significance of the single
+  SCA result. In the following section we discuss the procedure, obstacles
+  and the specific resolutions to the obstacles of replicating the
+  analysis.
+  
+  \subsection{SCA}\label{sca}
+  
+  \par 
+  
+  The first part of the replication is to replicate the single SCA
+  analysis for each dataset. All the replications in this section were
+  done mostly by the original code provided by Orben in the public github
+  repository. Due to the necessary reprocessings mentioned in the previous
+  sections, slight modifications were made to the original code for the
+  replication to be done smoothly.
+  
+  \par 
+  
+  It is important to understand what Orben considers as a
+  ``specification'' and how a specification is identified in this study.
+  \textbf{(Include a ``definition'' of specification here)} In this case,
+  the model is set to be a linear regression, with a response variable
+  representing ``adolescent mental well-being'' and an independent
+  variable representing ``technology use'', with an optional set of other
+  independent variable considered as control variables. An alternative
+  speicification here is an alternative combination of variables to be
+  used in the linear model. For example, one alternative specification may
+  be using the variable ``amount of time spent on watching TV in a day''
+  as the independent variable representing ``technology use'', ``number of
+  times thought of suicide'' as the dependent variable representing
+  ``adolescent mental well-being'', and a list of selected variables as
+  control variables, while another alternative specification choose
+  ``whether or not you own a personal computer at home'' as the
+  independent variable representing ``technology use'' instead. An
+  identified specification include one identified variable for
+  ``technology use'', one identified variable for ``adolescent mental
+  well-being'', and making the decision of whether or not to include
+  control variables in the model (i.e.~simple linear regression or
+  multivariate linear regression). The number of specifications determined
+  vary among three datasets, as the number of relevant variables is
+  different in different dataset.
+  
+  \par 
+  
+  Nearly 2.5 trillion alternative specifications were determined for the
+  MCS study. Considering the computational ability, a random subset of
+  20,004 specifications for the SCA analysis on MCS data was used instead.
+  A seed is not provided by Orben for the random subset, thus we failed to
+  obtain the exact same subset of specification for this SCA analysis. We
+  instead randomly generated our own subset of 20,004 specifications. It
+  is noteworthy that this randomness can result in discrepancy in SCA
+  result. Considering that the random subset has large size, we expect the
+  degree of this discrepancy to be small. And this expectation is
+  confirmed by replication result: while Orben obtained the median
+  coefficient of the independent variable to be
+  \(Median(\beta) = -0.032\), our replication obtained
+  \(Median(\beta) = -0.0328\).
+  
+  \par 
+  
+  The problem does not exist for the studies YRBS and MTF. There were less
+  variables available in the dataset relating to technology use and
+  adolescent mental well-being. The number of specifications identified in
+  the two studies are in reasonable size, therefore the exact set of
+  specifications were used for the replications. The result matched well
+  with Orben's result. The median coefficient of the independent variable
+  in the YRBS study was found to be \(Median(\beta) = -0.035\) in Orben's
+  study. The result obtained in this replication, when rounded to the same
+  digits, is also -0.035.
+  
+  \par 
+  
+  \textbf{MTF to be discussed}
+  
+  \subsection{Bootstrapping test}\label{bootstrapping-test}
+  
+  \par 
+  
+  The next part of the replication is to replicate the inference of the
+  single specification curves for each data. Orben chose to use a
+  bootstrapping test on the median overall point estimate for significance
+  of the result. We will later assess the choice of the inference test and
+  the correctness of the inference. For now, we will focus mainly on
+  replicating the process to conduct the bootstrapping test as Orben did
+  and the attempt to replicate her result.
+  
+  \par 
+  
+  500 SCA tests were conducted in Orben's study on bootstrapped samples
+  for each of the three datasets, and the single SCA results were shown to
+  be significant for all three datasets. The code for the bootstrapping
+  test and SCA are all publically available on Orben's github repository
+  {[}cite{]}. The initial attempt of the replication was done using the
+  original code. However, due to the large sizes of the three datasets and
+  the great number of loops used in the R code, the replication process
+  becomes computational expensive. A single SCA will take around 8 hours
+  to run, and performing 500 SCA will take nearly 24 weeks. An ARC
+  computer cluster at Oxford was used by Orben to reduce running time,
+  however, no access to such advanced computer is available for this
+  replication. Therefore, instead of using purely the original code, the
+  code for single SCA and bootstrapping distribution of SCA results have
+  been rewritten using parallel running. The running time have been
+  significantly reduced. The dataset YRBS has the least number of
+  observations and specifications, and after the recoding it now takes
+  about 9 hours for a complete boostrapping test with 500 SCA's to be done
+  using a computer with 8 cores. More time will be needed for the other
+  two datasets, as the number of observations and specifications can be
+  much higher in those two cases. A 96-core server is used.
+  \textbf{Detail times should be added later}
+  
+  \section{Evaluating Orben's work}\label{evaluating-orbens-work}
+  
+  The replication of Orben's work allows a better understanding of Orben's
+  approach and procedure. As mentioned in previous chapter, there exists a
+  number of errors in this study in terms of the usage of SCA, including
+  fundamental misunderstanding of the intentionals of the SCA method,
+  inappropriate choice of specifications, and misinterpretation of the SCA
+  results.
+  
+  \subsection{\texorpdfstring{``one-to-many'' mapping from scientific to
+  statistical
+  hypotheses}{one-to-many mapping from scientific to statistical hypotheses}}\label{one-to-many-mapping-from-scientific-to-statistical-hypotheses}
+  
   \begin{itemize}
   \tightlist
   \item
-    Follows a specific cohort of children born between September 2000 and
-    January 2001. Data were provided by both caregivers (parents) and
-    adolescent participants.
-  \item
-    The sample used included 5926 girls and 5946 boys with age ranged from
-    13 to 15. 10605 caregivers were also included.
-  \item
-    Data were successfully found. While Orben used data in \texttt{.csv}
-    file, was only able to obtain data in \texttt{.sav} format.
-  \item
-    Needed to submit request for access of data
+    Choice of variable for ``tech'' - different variable different story,
+    different underlying theories (- Choice of variable for
+    ``well-being'')
   \end{itemize}
-  \section{Processing}\label{processing}
+  
+  \subsection{True SCA inference}\label{true-sca-inference}
+  
   \begin{itemize}
   \tightlist
   \item
-    With a close look into Orben's code,
-    \url{https://github.com/OrbenAmy/NHB_2019}, the values included in the
-    datasets obtained were in different form than the values included in
-    the datasets used by Orben. While Orben had all numerical values, with
-    numbers being the index of survey answers, the datasets obtained had
-    characteristic values, as a combination of numerical index and actual
-    survey answer in characters. Data processing is thus needed to
-    replicate Orben's code.
+    Interpreting the actual numerical value of SCA test statistic? No,
+    this is not how the SCA results should be interpreted. It only shows
+    evidence for the existence of a relationship or not.
   \end{itemize}
-  \subsection{YRBS}\label{yrbs-1}
   
-  \subsection{MTF}\label{mtf-1}
+  \subsection{Bootstrapping?
+  Permutation?}\label{bootstrapping-permutation}
   
-  \subsection{MCS}\label{mcs-1}
-  \begin{itemize}
-  \tightlist
-  \item
-    All variables used in Orben's study were reprocessed. Refered back to
-    the survey questionnaire for the correct numerical index of survey
-    answers. Most variables were successfully reprocessed and reruning
-    Orben's code on the processed variables was successful
-  \item
-    Failed to obtain two variables. The variables had all NA values in the
-    dataset. One related to family income and the other related to
-    siblings at home. The two variables served as control variables in the
-    SCA analysis. Thus both were removed to continue replication.
-  \item
-    All other code were ran successfully without significant changes.
-    (only changed file directories)
-  \end{itemize}
-  \section{SCA Results}\label{sca-results}
+  \subsection{Choice of Multi-variate Linear
+  Regression}\label{choice-of-multi-variate-linear-regression}
   
-  \subsection{YRBS}\label{yrbs-2}
-  
-  \subsection{MTF}\label{mtf-2}
-  
-  \subsection{MCS}\label{mcs-2}
-  \begin{itemize}
-  \tightlist
-  \item
-    The replicated SCA result had \(\beta = -0.0328\), while in Orben's
-    study \(\beta = -0.032\). The result obtained in the replication study
-    is very close to the original result. Consider two variables were
-    removed from the control group, the result seems reasonable.
-  \end{itemize}
-  \section{Replication Obstacles}\label{replication-obstacles}
-  \begin{itemize}
-  \tightlist
-  \item
-    Had to do lots of data processing to be able to run the code and
-    replicate results.
-  \item
-    Permutation tests take long to be conducted. Orben used Oxford's
-    server for those simulations. Need to (possibly) subset datasets to
-    run the permutation tests in a reasonable amount of time.
-  \end{itemize}
   \chapter{Tables, Graphics, References, and Labels}\label{ref-labels}
   
   \section{Tables}\label{tables}
@@ -318,6 +684,7 @@ starts here.
   to display them in table form. Below is an example. Pay careful
   attention to the alignment in the table and hyphens to create the rows
   and columns.
+  
   \begin{longtable}[]{@{}ccc@{}}
   \caption{\label{tab:inher} Correlation of Inheritance Factors for Parents
   and Child}\tabularnewline
@@ -378,6 +745,7 @@ starts here.
   \end{minipage}\tabularnewline
   \bottomrule
   \end{longtable}
+  
   We can also create a link to the table by doing the following: Table
   \ref{tab:inher}. If you go back to {[}Loading and exploring data{]} and
   look at the \texttt{kable} table, we can create a reference to this max
@@ -407,14 +775,17 @@ starts here.
   ``Reed logo'', the label of ``reedlogo'', and specify that this is a
   figure. Make note of the different \textbf{R} chunk options that are
   given in the R Markdown file (not shown in the knitted document).
+  
   \begin{Shaded}
   \begin{Highlighting}[]
   \KeywordTok{include_graphics}\NormalTok{(}\DataTypeTok{path =} \StringTok{"figure/reed.jpg"}\NormalTok{)}
   \end{Highlighting}
   \end{Shaded}
+  
   \begin{figure}
   \includegraphics[width=3.47in]{figure/reed} \caption{Reed logo}\label{fig:reedlogo}
   \end{figure}
+  
   Here is a reference to the Reed logo: Figure \ref{fig:reedlogo}. Note
   the use of the \texttt{fig:} code here. By naming the \textbf{R} chunk
   that contains the figure, we can then reference that figure later as
@@ -430,6 +801,7 @@ starts here.
   next explore a bar graph with the mean flight departure delays by
   airline from Portland for 2014. Note also the use of the \texttt{scale}
   parameter which is discussed on the next page.
+  
   \begin{Shaded}
   \begin{Highlighting}[]
   \NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}
@@ -438,11 +810,13 @@ starts here.
   \StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"red"}\NormalTok{)}
   \end{Highlighting}
   \end{Shaded}
+  
   \begin{figure}
   \centering
   \includegraphics{thesis_files/figure-latex/delaysboxplot-1.pdf}
   \caption{\label{fig:delaysboxplot}Mean Delays by Airline}
   \end{figure}
+  
   Here is a reference to this image: Figure \ref{fig:delaysboxplot}.
   
   A table linking these carrier codes to airline names is available at
@@ -454,9 +828,11 @@ starts here.
   which can be used to shrink or expand an image loaded from a file by
   specifying \texttt{"scale=\ "}. Here we use the mathematical graph
   stored in the ``subdivision.pdf'' file.
+  
   \begin{figure}
   \includegraphics[scale=0.75]{figure/subdivision} \caption{Subdiv. graph}\label{fig:subd}
   \end{figure}
+  
   Here is a reference to this image: Figure \ref{fig:subd}. Note that
   \texttt{echo=FALSE} is specified so that the \textbf{R} code is hidden
   in the document.
@@ -466,9 +842,11 @@ starts here.
   Lastly, we will explore how to rotate and enlarge figures using the
   \texttt{out.extra} chunk option. (Currently this only works in the PDF
   version of the book.)
+  
   \begin{figure}
   \includegraphics[angle=180, scale=1.1]{figure/subdivision} \caption{A Larger Figure, Flipped Upside Down}\label{fig:subd2}
   \end{figure}
+  
   As another example, here is a reference: Figure \ref{fig:subd2}.
   
   \section{Footnotes and Endnotes}\label{footnotes-and-endnotes}
@@ -524,6 +902,7 @@ starts here.
   file into the csl folder.
   
   \textbf{Tips for Bibliographies}
+  
   \begin{itemize}
   \tightlist
   \item
@@ -551,6 +930,7 @@ starts here.
     the optional ``type'' field to enter ``Reed thesis'' or
     ``Undergraduate thesis.''
   \end{itemize}
+  
   \section{Anything else?}\label{anything-else}
   
   If you'd like to see examples of other things in this template, please
@@ -582,6 +962,7 @@ starts here.
   chunk tag) to help with readibility and/or setup.
   
   \textbf{In the main Rmd file}
+  
   \begin{Shaded}
   \begin{Highlighting}[]
   \CommentTok{# This chunk ensures that the thesisdown package is}
@@ -594,7 +975,9 @@ starts here.
   \KeywordTok{library}\NormalTok{(thesisdown)}
   \end{Highlighting}
   \end{Shaded}
+  
   \textbf{In Chapter \ref{ref-labels}:}
+  
   \begin{Shaded}
   \begin{Highlighting}[]
   \CommentTok{# This chunk ensures that the thesisdown package is}
@@ -617,6 +1000,7 @@ starts here.
   \NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/flights.csv"}\NormalTok{)}
   \end{Highlighting}
   \end{Shaded}
+  
   \chapter{The Second Appendix, for
   Fun}\label{the-second-appendix-for-fun}
   
@@ -661,3 +1045,4 @@ starts here.
   % Index?
 
 \end{document}
+
