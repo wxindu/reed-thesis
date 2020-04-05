@@ -40,12 +40,14 @@ This section discusses the attempt to replicate Orben's study along with the ass
 
 \par 500 specification curves were conducted in Orben's study on bootstrapped samples for each of the three datasets. It was found that the test statistic for the single specification curves was statistically significant in all three cases. The initial attempt of the replication was done using the original code as provided on the OSF website. However, due to the large sizes of the three datasets and the great number of loops used in the R code, the replication process was extremely computationally intense. A single specification curve will take around 8 hours to be generated, and performing 500 specification curves will take nearly 24 weeks. An ARC computer cluster at Oxford was used by Orben to reduce running time, however, no access to such an advanced computer is available for this replication. Therefore, instead of using purely the original code, the code for this replication was rewritten for parallel running. The running time has been significantly reduced. The dataset YRBS has the least number of observations and specifications, and after the recoding, it now takes about 9 hours to generate a complete bootstrapping distribution of 500 specification curves on a Rstudio server with 8 cores. With access to an AWS server with 96 cores, the running time can be further reduced. More time will be needed for the other two datasets, as the number of observations and specifications can be much higher in those two cases, but still within a computationally reasonable time range. 
 
-[Results will be added once the full implementation of the bootstrapping test code is finished]
+\par As mentioned earlier, a seed was not provided in Orben's study. Therefore we cannot fully replicate the randomness of a bootstrapping test. The boostrapped samples in this replication are different than the samples used in Orben's work, and this could result in a difference between the results of Orben's and this replication. 
+
+[ZJZJ Results will be added once the full implementation of the bootstrapping test implementation is finished for all three datasets. It is now completed for YRBS and MCS. MTF data still wrangling (very time consuming, progress <50% 4/5/2020).] 
 
 
 ## Evaluating Orben's work
 
-\par A full replication allows a full understanding of Orben's approach and procedure. It is only when we have a full understanding of the work that our critiques and assessments on it will be responsible and reliable. In this section, we talk in detail about our critiques on the usage of the SCA method in Orben's study, including some fundamental misunderstanding of the intentions and applicabilities of the SCA method, inappropriate choice of specifications, and misinterpretation of the SCA results. We also compare Orben's procedures with the procedures taken by Rohrer et al when studying the effect of birth-order position on personality, which is considered a more reasonable and appropriate application of the SCA method. (To be discussed)
+\par A full replication allows a full understanding of Orben's approach and procedure. It is only when we have a full understanding of the work that our critiques and assessments on it will be responsible and reliable. In this section, we talk in detail about our critiques on the usage of the SCA method in Orben's study, including some fundamental misunderstanding of the intentions and applicabilities of the SCA method, inappropriate choice of specifications, and misinterpretation of the SCA results. We also compare Orben's procedures with the procedures taken by Rohrer et al when studying the effect of birth-order position on personality, which is considered a more reasonable and appropriate application of the SCA method. 
 
 
 ### "one-to-many" mapping from scientific to statistical hypotheses
@@ -56,10 +58,11 @@ This section discusses the attempt to replicate Orben's study along with the ass
 
 \par Recall from Chapter 1, that the appropriate set of specifications considered for an SCA analysis is a set of operational decisions specific to a pre-determined research question and study design. Visualization of such a set of specifications was shown in figure \@ref(fig:OpeDecSCA). In this case, however, instead of conducting a study based on a specific research question, Orben may have considered multiple of them as alternatives to each other. 
 
-```{r OrbenRQ, fig.cap="Orben may have considered multiple research questions as alternatives to each other, instead of choosing a specific research question from the general topic, which is what should have been done to conduct an appropriate SCA analysis.", out.width = 450, echo = FALSE}
+```{r OrbenRQ, fig.cap="Orben may have considered multiple research questions as alternatives to each other instead of choosing a specific research question from the general topic, which is what should have been done to conduct an appropriate SCA analysis.", out.width = 450, echo = FALSE}
 include_graphics(path = "figure/Orben_ResearchQ.png")
 ```
 
+\par Such problem does not exist in the work conducted by Rohrer et al. ([@Rohrer]) By Rohrer et al., 11 specific research questions of interest are determined, and an SCA analysis is conducted for each specific research question. The research questions pre-determined the specific variables of interest. For example, one of the research questions studies the effect of birth-order position on life satisfaction. While there may be many different ways of measuring life satisfaction, there is much less ambiguity of what is represented by this term. Life satisfaction can be considered as being part of the category of personality, while technology use is more like a general category that is on the same level of personality. 
 
 ### Choice of Specifications 
 
@@ -74,6 +77,21 @@ include_graphics(path = "figure/OpeDec_Orben.png")
 
 \par The above figures provide an overall visualization of the specifications considered in Orben's study. Instead of considering one full set of combinations of operational decisions under a specific research question and study design, Orben considered a subset of operational decisions under multiple research questions. The outputs from the different branches are collapsed together into one analysis. This is, very clearly, different from an appropriate design of SCA analysis. 
 
+\par We can compare this choice of specifications to the one did by Rohrer et al. The following is the list of the specifications determined in the paper. 
+
+\begin{enumerate}
+    \item Different ways to measure the personality variable; 
+    \item Use raw scores or age-adjusted scores; 
+    \item Within-family or between-family analyses; 
+    \item Which definition of birth-order position to use: the social definition or the more restrictive definition limited to full siblings; 
+    \item Differentiation of each birth-order position within a sibship (e.g., first, second, third) or differentiation only of firstborn from later positions; 
+    \item Inclusion of all sibships or sibships with spacing does not exceed 5 years, or sibships with sibling spacing exceeded 1.5 years but did not exceed 5 years between any two siblings; 
+    \item Exclusion of any gender effects, the inclusion of the main effect of gender, or inclusion or both the main effect of gender and the interaction of birth-order position and gender; 
+    \item Analysis of the complete sample, analysis of only individuals from sibships with 2 to 4 children, or separate analyses for sibships of 2, 3, and 4 children.
+\end{enumerate}
+
+\par The specifications determined above can be mainly categorized into the following types: variable measurement decisions, variable transformation decisions and outlier decisions. Different combinations of specifications do not change the research question being studied, and are mainly reasonable alternative ways of conducting an analysis for this specific topic. 
+
 ### SCA interpretation
 
 \par The last major problem of this study is the way Orben interprets the single SCA result. As discussed in the previous chapter, the single SCA generated is used for a descriptive curve that can provide information on whether or not the relationship appears to be happening by chance, and if a certain pattern of a true relationship is observed, if the relationship appears to be robust in response to changes in specifications. The single specification curve should not be used for any interpretation of the actual magnitude of the numerical values of the estimates. However in Orben's study, when interpreting the single generated specification curve, the median values of the $\beta$ estimates were used and the magnitudes of the numerical value were considered. Here is a quote from the study: 
@@ -83,3 +101,5 @@ include_graphics(path = "figure/OpeDec_Orben.png")
 \end{quote}
 
 \par The "SCAs" here refers to the single specification curve generated for each of the three datasets, MTF, YRBS, and MCS. And the "small negative association" was concluded from the median estimate of the $\beta$'s from models with changing specifications. Nowhere suggested by Simonsohn et al describes this interpretation of the numerical result from a specification curve. The three examples provided in the original paper describing the method do not make such conclusions from a single specification curve but only used it to assess if the relationship seems strong and which specifications appear to have the largest effect on the estimate. When conducting inferential tests for the three examples, the medians were only used to check statistical significance. The numerical values of the medians were never considered to be meaningful. 
+
+\par It is worth mentioning here that the application performed by Rohrer et al. did not interpret the numerical values of the test statistics, following the instructions suggested by Simonsohn et al. The analysis interpretations of the SCA results follow closely the examples provided in the work of Simonsohn et al. While it is unknown of the rationale behind Orben's innovative steps when conducting the SCA analysis, Chapter 3 provides a detailed discussion of why these innovations may in fact provide unreliable results and interpratations. 
