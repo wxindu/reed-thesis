@@ -1,21 +1,58 @@
 # Inference for SCA
 
+\par This chapter focuses on the statistical inference on a specification curve. Simonsohn et al. provided guidelines and suggestions on conducting an inferential test on a specification curve using the bootstrapping or the permutation technique along with three choices of test statistics. However, such process is not statistically formalized. In the followings sections, we attempt to statistically formalize the proposed inferential test for a specification curve, from its hypothesis, test statistics to its conclusion and interpretation. We also evaluate the possibility of additional inferences based on the formalized test, such as interpretation on numerical values of the test statistics, additional inference on "Dominant sign", and additional inference on the outstanding combinations of specifications.  
+
 ## Formalizing suggestions from paper
 
-- Statistical Hypothesis for the inference test
-- Three proposed test statistics and formalizations
+\par We start by attempting to statistically formalize the inferential test on a specification curve. Simonsohn proposed the inferential test in the structure of a hypothesis testing, including three main parts: statistical hypothesis, test statistics and null distribution, and inference on the test statistics. In the following sections, we discuss and evaluate each of the three parts proposed, and provide formalizations of each part. 
 
-## Conclusions of inferential tests
+### Statistical Hypothesis
 
-### statistical significance and interpretation
-    
+\par The paper indicated that the inferential test is designed to answer the question, “\emph{Considering the full set of reasonable specifications jointly, how inconsistent are the results with the null hypothesis of no effect?}” The authors never explicitly limits the type of research questions that can be studied by an SCA to be causal research questions only. The examples provided in the paper all worked with correlation problems, instead of causal problems. While the authors indicated the null hypothesis to be "no effect" here, the true null hypothesis they meant should be "no relationship/correlation" or "no effect". In the case of the model form being fixed to linear regressions, the null hypothesis can be rephrased simply as $\beta = 0$, regardless of the type of relationship being studied. It is then natural to rephrase the alternative hypothesis as $\beta \neq 0$, "exists a relationship/correlation" or "has effect". 
+
+### Test Statistics and Null Distribution
+
+\par The next part of a hypothesis testing is to determine the test statistics, the null distribution, and fin the p-value for inference. Simonsohn proposed three choices of test statistics: 1) the median overall point estimate from the specification curve, 2) the share of estimates in specification curve that are of the dominant sign, 3) the share that is of the dominant sign and also statistically significant (p < 0.05). Due to the great flexibility of choosing specifications, it is difficult to determine the null distribution of these test statistics analyically. Simonsohn suggested using the resampling technique to find the expected distribution of specifications curves when the null hypothesis is true: permutation technique for data with random assignment, and bootstrapping technique for data without it. This is a reasonable approach for estimating the null distribution of specifications curves, and thus determine a null distribution of the test statistics. But this approach can be computationally expensive. To generate a distribution, a large number of specification curves based on resampled data will be needed. Generating a single specification curve can already be computationall expensive, especially when the number of alternative specifications is large and/or the model form is complicated. Generating, say, several hundreds of such specifications curves can take several days or even weeks to finish, even when running in parallel on a powerful server. This brings great difficulty for conducting an inferential test for SCA in real life. The process could be well simplified if a reference null distribution can be more easily generated using statistical theories. For each of the three test statistics, we attempt to provide alternative ways of constructing the null distribution of test statistics, without having to generate the full expected null distribution of specification curves, using statistical theories. 
+
+1. 
+2. 
+3.
+
+### Conclusion and Interpretation
+
+\par The final step of conducting a hypothesis test is drawing conclusions from the p-value. The way of interpreting a p-value in this case is same as interpreting a p-value in other cases. With a significance level $\alpha$ chosen, if $p < \alpha$, then we reject the null hypothesis. Otherwise we fail to reject the null hypothesis. In this case, the p-value may only used for assessing if and how the results from the single specification curve are consistent with the null hypothesis of no effect/no relationship. It is important to note that this inferencial test on a specification curve is essentially a hypothesis testing, and the conclusions that could be drawn from a hypothesis testing is fixed: whether or not we reject the null hypothesis. It is dangerous to make additional conclusions despite the whole test procedure is designed to be a simple hypothesis test. Orben, for example, drawn conclusions on the numerical values of one of the three test statistics, alongside with the normal interpretation of the p-value. No justifications have been provided for the additional conclusions being drawn. In the later section, we will discuss in more details of why this additional interpretation of test statistics can be misleading. 
+
+### Formalized Procedure
+
+\par We can now formalize the procedure of conducting a inferential test on a single specification curve as the following: 
+
+\begin{enumerate}
+  \item Indicating the hypotheses: $H_0:$ No effect/No relationship; $H_1:$ Has effect/Exist relationship. 
+  \item Generating test statistic(s): 
+  \begin{enumerate}
+    \item the median overall point estimate from the specification curve
+    \item the share of estimates in specification curve that are of the dominant sign
+    \item the share that is of the dominant sign and also statistically significant (p < 0.05)
+  \end{enumerate}
+  \item Compute null distributions and determine p-value(s): 
+  \item Drawn conclusion: if $p > \alpha$, failed to reject null with statistical significance $\alpha$. Otherwise, reject null with statistical significance $\alpha$.
+\end{enumerate}
 
 ## Additional Inference
 
-### Numerical values of estimates
+\par A single specification curve provides information on how robust a model appears to be in response to changes in specifications. The inferential test on a specification curve answers the question of whether there is evidence of an effect/a relationship. Could we learn more from an SCA? Orben attempted to interpret the numerical value of the median overall point estimate from the specification curve as representing the magnitude of an effect/relationship, is this an appropriate inference? In the following sections, we discuss and evaluate some possible additional inference, existing in the current applications or not, on an SCA.
 
-1. Consider single SCA curve: define some statistics that describe how spread out the estimates are/how clustered the estimates are
-2. Consider the inference of such statistic for permutation testing. 
+### Interpreting Numerical Values of Test Statistics
+
+\par When studying the existence of an effect or a relationship, researchers almost always care about the sign and magnitude of the effect or a relationship, if exists. Normally, when studying such problems, only one estimate of the effect/relationship would be provided, and the magnitude and sign of the estimate are considered meaningful. In this case, however, every point estimate in a specification curve would have been a reasonble estimate of the effect/relationship. These estimates are likely not all close to each other, they may have different signs and may have different magnitude. While the inference on a specification curve answers the question of whether or not there is evidence of the existence of an effect/a relationship, the proposed SCA does not give an exact estimate of the effect/relationship. Can we combine the point estimates in a specification curve and generate an overall estimate of the effect/relationship? 
+
+\par As mentioned earlier, Orben used the median of the point estimates in a specification curve to represent the overall estimate of the effect/relationship. When we have a set of estimates of the same thing, it is tempting to use the center of these estimate as representing the overall result. The median of them seems not to be a bad choice. However, it is questionable if the different point estimates based on different set of specifications can be considered as the estimates of the exact same thing. Certain choices of specifications may lead to differences in the exact model forms, and the numerical value of different point estimates may not mean the same thing. For example, Simonsohn et al. in one of their examples considered using the log transformation of the response variable as alternative specification to using the response variable itself. For those point estimates generated with "log transformation" as one of the specifications, we should interpret the numerical values as the amount of changes in logged response variable when independent variable changes by one unit. For those point estimates generated using the response variable itself, the interpretation of the numerical values would be the amount of changes in response variable when independent variable changes by one unit. A large point estimate in the later case does not necessarily reflect a stronger effect/relationship than a small point estimate in the former case, as the numbers represent different type of effect/relationship between the two variables. 
+
+\par In many cases, decisions that change the model form are not considered reasonable alternative specification to each other. Does this mean that the point estimates can be interpreted in the same way? Not necessarily. If the inclusion of some interaction term is determined to be a specification, the way interpreting the $\beta$ estimate in this case will be different from the interpretation of it without the interaction term. Moreover, decisions change the control variables being considered in the model would also produce point estimates being interpreted in different ways. For example, when the control variables are A, B, and C, the way one would interpret $\beta$ estimate is that, it represents the effect/relationship when A, B and C are controlled. When the control variables are different, say A and B, the point estimate represents the effect/relationship when A and B are controlled. They do mean different things. 
+
+\par As different point estimate may be interpreted differently, the median point estimate may not represent the median estiamted effect/relationship. With the great flexibility of choosing specifications in SCA, it is highly likely that the different point estimate should be interpreted differently. For example, in the case of Orben's work, even if the type of specifications used is limited to three types, the different point estimate correspond to different independent variable, different response variable, and different set of control variables, with many of the variables having different scale. It is inappropriate to interpret the different point estimate in the same way, and consider that the median point estimate represents the median estimated effect/relationship. We would have to restrict the types of specifications a very small set if we want the summary statistic of the point estimates to be meaningful. But then we loose the flexibility of an SCA. 
+
+\par While it is difficult and nearly unrealistic to measure magnitude of effect/relationship based on summary statistic of the point estimates, we can still draw conclusions about the estimated sign of the effect/relationship using the dominant sign, the sign of the majority of estimates. It may not be appropriate to directly draw conclusion based on the dominant sign. If 51% of the estimates are positive and 49% of the estimates are negative, the dominant sign is positive. But with the proportions being approximately 50%, claiming that the estimated sign of the effect/relationship is positive seems inappriate. It is intuitively right that if the dominant sign shares a proportion that's large enough, we can claim that the overall estimated sign of the effect/relationship is of the dominant sign--but how large would be large enough? We would need to setup some threshold. 
 
 ### Inference on "Dominant sign"
 
@@ -24,3 +61,6 @@
 ### Outstanding combinations of specifications
 
 - set of specifications which generate outstanding estimates, differing from the majority of the estimates. (In terms of signs)
+- If an outstanding combinatinos of specifications, could be potentially suggesting different underlying theories. 
+
+Critiques of SCA: change in control variables could be potentially suggesting different theories. 
