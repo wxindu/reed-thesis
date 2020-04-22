@@ -120,18 +120,20 @@ results <- data.frame(coef = c(unlist(logit_coef), unlist(linear_coef)),
   arrange(coef) %>%
   mutate(model_number = 1:128) %>%
   mutate(sig = ifelse(p < 0.05, TRUE, FALSE))
-write_csv(results, here("data", "yrbs_SCA_results.csv"))         
+write_csv(results, here("data", "yrbs_SCA_results.csv"))      
+
 curve <- results %>% ggplot(aes(x = model_number, y = coef, color = sig)) + geom_point() +
   theme_classic() +
   theme(axis.line.x = element_line(colour = "grey", 
                                    size = 0.5, linetype = "solid"),
         axis.line.y = element_line(colour = "grey", 
                                    size = 0.5, linetype = "solid")) + 
+  geom_hline(yintercept=0, linetype="dashed", color = "grey") +
   theme(legend.position = "left") +
-  labs(color = "P-value < 0.05            ", 
+  labs(color = "P-value < 0.05                ", 
        x = "Model Number", 
        y = "Estimated Coefficients") +
-  scale_x_continuous(breaks = seq(0, 128, by = 10))
+  scale_x_continuous(breaks = seq(0, 128, by = 10)) 
 
 spec_plot <- data.frame(unlist(formulas)) %>%
   mutate(plan_suicide = grepl("q27_n", unlist.formulas., fixed = TRUE), 
@@ -148,15 +150,21 @@ spec_plot <- data.frame(unlist(formulas)) %>%
   filter(T_F == TRUE) %>%
   rename(formula = unlist.formulas.) %>%
   full_join(spec_name) %>%
-  mutate(spec = factor(spec, levels = c("int_hours_computer", "int_physical_activity", 
-                                        "int_recent_alcohol", "int_halluc_drug", 
+  mutate(specification = factor(specification, levels = c("TV use * hours of computer", 
+                                                          "TV use * days of physical active", 
+                                                          "TV use * recent alcohol consumption", 
+                                                          "TV use * hallucinogenic drug consumption", 
                                         "INTERACTION TERMS", 
-                                        "recent_alcohol", "halluc_drug",
+                                        "Recent alcohol consumption", 
+                                        "Recent hallucinogenic drug consumption", 
                                         "ADDITIONAL CONTROL VARIABLES", 
-                                        "plan_suicide", "serious_consid_suicide", "felt_hopeless", "attempt_suicide", 
+                                        "Planned on suicide", 
+                                        "Seriously considered suicide", 
+                                        "Felt hopeless and stopped usual activities", 
+                                        "Actual attempt on suicide", 
                                         "ALTERNATIVE RESPONSE VARIABLES"))) %>%
   full_join(results) %>%
-  ggplot(aes(x = model_number, y = spec)) + geom_point() +
+  ggplot(aes(x = model_number, y = specification)) + geom_point() +
   theme_classic() +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
