@@ -162,10 +162,11 @@ curve <- results %>% ggplot(aes(x = model_number, y = coef, color = sig)) + geom
                                    size = 0.5, linetype = "solid")) + 
   geom_hline(yintercept=0, linetype="dashed", color = "grey") +
   theme(legend.position = "left") +
-  labs(color = "P-value < 0.05             ", 
+  labs(color = "P-value < 0.05               ", 
        x = "Model Number", 
        y = "Estimated Coefficients") +
-  scale_x_continuous(breaks = seq(0, 128, by = 10)) 
+  scale_x_continuous(breaks = seq(0, 128, by = 10)) +
+  scale_y_continuous(breaks = c(-0.03, 0, 0.03, 0.06, 0.09))
 
 spec_plot <- results %>%
   mutate(plan_suicide = grepl("q27_n", formula, fixed = TRUE), 
